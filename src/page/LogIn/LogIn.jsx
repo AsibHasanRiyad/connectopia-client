@@ -1,39 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
-    const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const { singIn, googleSignIn } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    setError('')
+    const toastId = toast.loading("Logging In....");
+    setError("");
     console.log(data);
     singIn(data.email, data.password)
-    .then(result =>{
+      .then((result) => {
+        toast.success('Logged In...', {id: toastId});
         console.log(result);
-    })
-    .catch(error =>{
-        setError(error.message)
-    })
-  }
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.error(error.message, {id: toastId})
+      });
+  };
   // google sign in
-  const handelGoogleSignIn = () =>{
+  const handelGoogleSignIn = () => {
+    const toastId = toast.loading("Logging In....");
     googleSignIn()
-    .then(result =>{
-      console.log(result);
-    })
-    .catch(error =>{
-      console.log(error);
-      setError(error.message)
-    })
-  }
+      .then((result) => {
+        console.log(result);
+        toast.success('Logged In...', {id: toastId});
+        navigate('/')
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+        toast.error(error.message, {id: toastId});
+      });
+  };
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#132c50]">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-200">
@@ -102,7 +112,10 @@ const LogIn = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <div onClick={handelGoogleSignIn} className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+        <div
+          onClick={handelGoogleSignIn}
+          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+        >
           <FcGoogle size={32} />
 
           <p>Continue with Google</p>

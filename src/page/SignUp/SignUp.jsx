@@ -1,63 +1,72 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import { updateProfile } from "firebase/auth";
-
+import toast from "react-hot-toast";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SignUp = () => {
-    const axiosPublic = useAxiosPublic();
-    const {createUser,googleSignIn, user} = useAuth()
-    const [error, setError] = useState('')
+  const axiosPublic = useAxiosPublic();
+  const { createUser, googleSignIn } = useAuth();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    setError('')
-    console.log(data)
-    const imageFile = {image: data.image[0]}
-    const res = await axiosPublic.post(image_hosting_api, imageFile,{
-        headers :{
-            "Content-Type": "multipart/form-data",
-        }
-    })
+    setError("");
+    const toastId = toast.loading("Logging In....");
+    console.log(data);
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     console.log(res.data.data.display_url);
-    const imageUrl = res.data.data.display_url
+    const imageUrl = res.data.data.display_url;
     console.log(imageUrl);
     createUser(data?.email, data?.password)
-    .then(res =>{
+      .then((res) => {
+        toast.success("Logged In...", { id: toastId });
         console.log(res);
         updateProfile(res.user, {
-            displayName: data?.name,
-            photoURL:imageUrl ? imageUrl : res?.photoURL            ,
-          });
-    })
-    .catch(error =>{
-        setError(error.message)
-    })
+          displayName: data?.name,
+          photoURL: imageUrl ? imageUrl : res?.photoURL,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.success(error.message, { id: toastId });
+      });
   };
-    // google sign in
-    const handelGoogleSignIn = () =>{
-      googleSignIn()
-      .then(result =>{
-        console.log(result.user);
-        // updateProfile(result.user, {
-        //   displayName: result?.user?.name,
-        //   photoURL:result?.user?.photoURL            ,
-        // });
+  // google sign in
+  const handelGoogleSignIn = () => {
+    const toastId = toast.loading("Logging In....");
+    googleSignIn()
+      .then((result) => {
+        toast.success("Logged In...", { id: toastId });
+        console.log(result.user.photoURL);
+        updateProfile(result.user, {
+          displayName: result?.user?.name,
+          photoURL: result?.user?.photoURL,
+        });
+        navigate("/");
       })
-      .catch(error =>{
+      .catch((error) => {
         console.log(error);
-        setError(error.message)
-      })
-    }
+        setError(error.message);
+        toast.success(error.message, { id: toastId });
+      });
+  };
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#132c50]">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-200">
@@ -169,7 +178,10 @@ const SignUp = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <div onClick={handelGoogleSignIn} className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+        <div
+          onClick={handelGoogleSignIn}
+          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+        >
           <FcGoogle size={32} />
 
           <p>Continue with Google</p>
