@@ -9,7 +9,7 @@ const DashboardLayout = () => {
             <div className=" min-h-screen">
                 <Sidebar></Sidebar>
             </div>
-            <div className=" flex-1 px-4 lg:px-6 py-12 lg:py-6 bg-[#275597]">
+            <div className=" flex-1 px-4 lg:px-6 py-12 lg:py-6">
             <Outlet></Outlet>
             </div>
         </div>

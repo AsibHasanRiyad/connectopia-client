@@ -5,6 +5,7 @@ import SignUp from "../page/SignUp/SignUp";
 import LogIn from "../page/LogIn/LogIn";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyProfile from "../page/Dashboard/MyProfile";
+import AddPost from "../page/Dashboard/AddPost/AddPost";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
             {
                 path:'myProfile',
                 element:<MyProfile></MyProfile>
-            }
+            },
+            {
+                path:'addPost',
+                element:<AddPost></AddPost>
+            },
         ]
     }
 ])
