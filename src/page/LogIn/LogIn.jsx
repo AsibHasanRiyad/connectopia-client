@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const LogIn = () => {
     const [error, setError] = useState('')
-  const { singIn } = useAuth();
+  const { singIn, googleSignIn } = useAuth();
   const {
     register,
     handleSubmit,
@@ -22,7 +22,18 @@ const LogIn = () => {
     .catch(error =>{
         setError(error.message)
     })
-  };
+  }
+  // google sign in
+  const handelGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result =>{
+      console.log(result);
+    })
+    .catch(error =>{
+      console.log(error);
+      setError(error.message)
+    })
+  }
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#132c50]">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-200">
@@ -91,7 +102,7 @@ const LogIn = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+        <div onClick={handelGoogleSignIn} className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
           <FcGoogle size={32} />
 
           <p>Continue with Google</p>
