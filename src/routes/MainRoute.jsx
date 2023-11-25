@@ -38,6 +38,7 @@ const router = createBrowserRouter([
         path:'dashboard',
         element:<DashboardLayout></DashboardLayout>,
         children:[
+            // normal user route
             {
                 path:'myProfile',
                 element:<MyProfile></MyProfile>
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
                 path:'myPost',
                 element:<MyPost></MyPost>
             },
+            //admin routes
         ]
     }
 ])

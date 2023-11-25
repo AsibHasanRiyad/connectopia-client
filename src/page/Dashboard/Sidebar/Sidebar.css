@@ -1,8 +1,8 @@
 .active{
-    color: #132c50;
+    color: #142946;
     font-weight: 600;
     font-style:oblique;
-    background: white;
-    padding: 8px;
+    background: #375073;
+    padding: 4px;
     border-radius: 4px;
 }

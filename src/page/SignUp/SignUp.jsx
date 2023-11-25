@@ -32,9 +32,16 @@ const SignUp = () => {
     });
     console.log(res.data.data.display_url);
     const imageUrl = res.data.data.display_url;
-    console.log(imageUrl);
+    // console.log(imageUrl);
+    const userInfo = {
+      name:data?.name,
+      email:data?.email,
+      image:res.data.data.display_url
+    }
+    console.log(userInfo);
     createUser(data?.email, data?.password)
       .then((res) => {
+        axiosPublic.post('/users', userInfo)
         toast.success("Logged In...", { id: toastId });
         console.log(res);
         updateProfile(res.user, {
@@ -59,6 +66,12 @@ const SignUp = () => {
           displayName: result?.user?.name,
           photoURL: result?.user?.photoURL,
         });
+        const userInfo = {
+          name: result?.user?.name,
+          email: result?.user?.email,
+          image:result?.user?.photoURL
+        }
+        axiosPublic.post('/users', userInfo)
         navigate("/");
       })
       .catch((error) => {

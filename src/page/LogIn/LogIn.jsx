@@ -4,11 +4,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const LogIn = () => {
   const [error, setError] = useState("");
   const { singIn, googleSignIn } = useAuth();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic()
   const {
     register,
     handleSubmit,
@@ -36,6 +38,13 @@ const LogIn = () => {
       .then((result) => {
         console.log(result);
         toast.success('Logged In...', {id: toastId});
+        const userInfo = {
+          name: result?.user?.name,
+          email: result?.user?.email,
+          image:result?.user?.photoURL
+        }
+        axiosPublic.post('/users', userInfo)
+        navigate("/");
         navigate('/')
       })
       .catch((error) => {
