@@ -7,7 +7,7 @@ import { IoHome } from "react-icons/io5";
 import "./Sidebar.css";
 const Sidebar = () => {
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open z-10">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content absolute flex flex-col items-center justify-center">
         {/* Page content here */}
