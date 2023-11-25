@@ -15,13 +15,13 @@ const Tags = () => {
   ];
 
   return (
-    <div className=" col-span-2 order-1 md:order-2 bg-[#132c50] text-white p-4 rounded-md">
-      <h1 className=" text-3xl">
+    <div className=" col-span-2 order-1 md:order-2 bg-[#132c50]  p-4 rounded-md h-80">
+      <h1 className=" text-4xl text-gray-200 font-semibold">
         Use these tags to search post for finding better result
       </h1>
       <div className=" flex flex-wrap gap-4 mt-4">
         {tags.map((tag) => (
-          <p key={tag}>{tag}</p>
+          <p className=" text-gray-200" key={tag}>{tag}</p>
         ))}
       </div>
     </div>

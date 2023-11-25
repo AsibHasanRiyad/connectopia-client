@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Pos from "./Pos";
+import Button from "../Shared/Button";
 
 
 const Post = () => {
@@ -13,13 +14,18 @@ const Post = () => {
     //   console.log(res.data);
     },
   });
-  console.log(post);
+  // console.log(post);
+  const reversedPost = post.slice().reverse();
 
   return (
-    <div className=" col-span-4 order-2 md:order-1">
+    <div className=" col-span-4 order-2 md:order-1 mr-0 md:mr-6 lg:mr-10">
+      <div className=" flex items-center justify-between mb-4">
       <h1 className=" text-6xl"> News Feed </h1>
-      <div className=" space-y-8 mr-0 md:mr-6 lg:mr-10 mt-6">
-        {post.map((pos) => (
+      <Button type={'primary'} title={'Short By Popularity'}></Button>
+      </div>
+      <hr />
+      <div className=" space-y-8 mt-6">
+        {reversedPost.map((pos) => (
           <Pos pos={pos} key={pos._id}></Pos>
         ))}
       </div>

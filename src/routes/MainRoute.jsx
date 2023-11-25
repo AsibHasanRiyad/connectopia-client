@@ -7,6 +7,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import MyProfile from "../page/Dashboard/MyProfile";
 import AddPost from "../page/Dashboard/AddPost/AddPost";
 import MyPost from "../page/Dashboard/MyPost";
+import PostDetails from "../page/PostDetails/PostDetails";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,12 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>
-            }
+            },
+            {
+                path:'/post/:id',
+                element:<PostDetails></PostDetails>,
+                loader: ({params}) => fetch(`http://localhost:5001/post/${params.id}`)
+            },
         ]
     },
     {

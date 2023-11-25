@@ -32,6 +32,7 @@ const AddPost = () => {
 
   const { register, handleSubmit } = useForm()
   const onSubmit = (data) => {
+    data.postedTime = new Date()
     data.tags = tags
     console.log(data);
     axiosPublic.post('/post',data)
