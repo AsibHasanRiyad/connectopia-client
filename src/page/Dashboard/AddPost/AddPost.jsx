@@ -4,11 +4,13 @@ import Select from 'react-select'
 import { useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import usePost from "../../../hooks/usePost";
 
 const AddPost = () => {
   const { user } = useAuth();
   const [tags, setTags] = useState('')
   const axiosPublic = useAxiosPublic()
+  const [,refetch] = usePost()
   const options = [
     { "value": 'technology', "label": 'Technology' },
     { "value": 'travel', "label": 'Travel' },
@@ -35,6 +37,7 @@ const AddPost = () => {
     axiosPublic.post('/post',data)
     .then(res => {
       console.log(res.data)
+      refetch()
       if (res.data.insertedId) {
           Swal.fire({
             title: "Added!",

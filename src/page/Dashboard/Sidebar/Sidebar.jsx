@@ -5,7 +5,9 @@ import { IoCreateOutline } from "react-icons/io5";
 import { MdLibraryBooks } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import "./Sidebar.css";
+import usePost from "../../../hooks/usePost";
 const Sidebar = () => {
+  const [post] = usePost()
   return (
     <div className="drawer lg:drawer-open z-10">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -54,7 +56,7 @@ const Sidebar = () => {
           >
             <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
               <MdLibraryBooks />
-              My Post
+              My Post ({post.length})
             </p>
           </NavLink>
           <hr />

@@ -14,7 +14,7 @@ const Search = () => {
                     </span>
                 </h1>
                 <div className="flex flex-col mt-8 space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
-                    <input type="text" className="px-6 w-[50vw] py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring sm:mx-2" placeholder="Enter tags" />
+                    <input type="text" className="px-6 w-full md:w-[50vw] py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring sm:mx-2" placeholder="Enter tags" />
 
                     <Button title="Search" type={'primary'}></Button>
                 </div>

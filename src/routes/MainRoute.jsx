@@ -6,6 +6,7 @@ import LogIn from "../page/LogIn/LogIn";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyProfile from "../page/Dashboard/MyProfile";
 import AddPost from "../page/Dashboard/AddPost/AddPost";
+import MyPost from "../page/Dashboard/MyPost";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:'addPost',
                 element:<AddPost></AddPost>
+            },
+            {
+                path:'myPost',
+                element:<MyPost></MyPost>
             },
         ]
     }
