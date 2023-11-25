@@ -2,13 +2,18 @@ import { IoMdMenu } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { IoCreateOutline } from "react-icons/io5";
-import { MdLibraryBooks, MdManageAccounts, MdOutlineReport } from "react-icons/md";
+import {
+  MdLibraryBooks,
+  MdManageAccounts,
+  MdOutlineReport,
+} from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import { TfiAnnouncement } from "react-icons/tfi";
 import "./Sidebar.css";
 import usePost from "../../../hooks/usePost";
 const Sidebar = () => {
   const [post] = usePost();
+  // TODO: make is admin dynamic
   const isAdmin = true;
   return (
     <div className="drawer lg:drawer-open z-10 h-full">
@@ -31,47 +36,47 @@ const Sidebar = () => {
           {isAdmin ? (
             //admin
             <>
-             <NavLink
+              <NavLink
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to={"/dashboard/myProfile"}
+                to={"/dashboard/adminProfile"}
               >
                 <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
                   <CgProfile />
                   Admin Profile
                 </p>
               </NavLink>
-             <NavLink
+              <NavLink
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to={"/"}
+                to={"/dashboard/manageUser"}
               >
                 <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
-                <MdManageAccounts />
+                  <MdManageAccounts />
                   Manage User
                 </p>
               </NavLink>
-             <NavLink
+              <NavLink
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to={"/"}
+                to={"/dashboard/report"}
               >
                 <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
-                <MdOutlineReport />
+                  <MdOutlineReport />
                   Report
                 </p>
               </NavLink>
-             <NavLink
+              <NavLink
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to={"/"}
+                to={"/dashboard/announcement"}
               >
                 <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
-                 <TfiAnnouncement />
+                  <TfiAnnouncement />
                   Announcement
                 </p>
               </NavLink>
@@ -112,20 +117,20 @@ const Sidebar = () => {
                   My Post ({post.length})
                 </p>
               </NavLink>
-              <hr />
-              <NavLink
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
-                }
-                to={"/"}
-              >
-                <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
-                  <IoHome />
-                  Home
-                </p>
-              </NavLink>
             </>
           )}
+          <hr />
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            to={"/"}
+          >
+            <p className="transform hover:scale-125 transition duration-500 ease-out flex justify-center items-center gap-2">
+              <IoHome />
+              Home
+            </p>
+          </NavLink>
         </ul>
       </div>
     </div>

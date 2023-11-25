@@ -8,6 +8,10 @@ import MyProfile from "../page/Dashboard/MyProfile";
 import AddPost from "../page/Dashboard/AddPost/AddPost";
 import MyPost from "../page/Dashboard/MyPost";
 import PostDetails from "../page/PostDetails/PostDetails";
+import Announcement from "../page/AdminDashboard/Announcement/Announcement";
+import Report from "../page/AdminDashboard/Report/Report";
+import ManageUser from "../page/AdminDashboard/ManageUser/ManageUser";
+import AdminProfile from "../page/AdminDashboard/AdminProfile/AdminProfile";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +56,23 @@ const router = createBrowserRouter([
                 element:<MyPost></MyPost>
             },
             //admin routes
+            {
+                path:'adminProfile',
+                element:<AdminProfile></AdminProfile>
+            },
+            {
+                path:'announcement',
+                element:<Announcement></Announcement>
+            },
+            {
+                path:'report',
+                element:<Report></Report>
+            },
+            {
+                path:'manageUser',
+                element:<ManageUser></ManageUser>
+            },
+
         ]
     }
 ])

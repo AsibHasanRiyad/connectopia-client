@@ -41,7 +41,9 @@ const LogIn = () => {
         const userInfo = {
           name: result?.user?.name,
           email: result?.user?.email,
-          image:result?.user?.photoURL
+          image:result?.user?.photoURL,
+          role:'user',
+          status:'Bronze'
         }
         axiosPublic.post('/users', userInfo)
         navigate("/");
