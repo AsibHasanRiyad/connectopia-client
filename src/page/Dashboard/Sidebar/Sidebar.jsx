@@ -14,11 +14,9 @@ import usePost from "../../../hooks/usePost";
 import useAdmin from "../../../hooks/useAdmin";
 const Sidebar = () => {
   const [post] = usePost();
-  
   const [isAdmin] = useAdmin()
   // const isAdmin = true
-  console.log('is admin?',isAdmin);
-
+  // console.log('is admin?',isAdmin);
   return (
     <div className="drawer lg:drawer-open z-10 h-full">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Select from "react-select";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import usePost from "../../../hooks/usePost";
 
@@ -9,9 +9,10 @@ import usePost from "../../../hooks/usePost";
 // import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../components/Loader";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Button from "../../../components/Shared/Button";
+import useStatus from "../../../hooks/useStatus";
 
 
 const AddPost = () => {
@@ -20,8 +21,8 @@ const AddPost = () => {
   const [tags, setTags] = useState("");
   const axiosSecure = useAxiosSecure();
   const [post, refetch] = usePost();
-  console.log(post);
-  const [status, setStatus] = useState('')
+  // console.log(post);
+  // const [status, setStatus] = useState('')
 
 
   // const { data: currentUser } = useQuery({
@@ -33,25 +34,26 @@ const AddPost = () => {
   // });
   // console.log(currentUser);
 
-    const { data: currentUser, isLoading } = useQuery({
-    queryKey: ["currentUser", user?.email],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/users?email=${user.email}`);
-      return res.data;
-    },
-  });
-  if (isLoading) {
-    console.log("Loadinnkjds");
-  }
-  useEffect(() => {
-    if (!isLoading && currentUser && currentUser.length > 0) {
-      const currentStatus = currentUser[0].status;
-      console.log(currentStatus);
-      setStatus(currentStatus);
-    }
-  }, [isLoading, currentUser, status]);
+  //   const { data: currentUser, isLoading } = useQuery({
+  //   queryKey: ["currentUser", user?.email],
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get(`/users?email=${user.email}`);
+  //     return res.data;
+  //   },
+  // });
+  // useEffect(() => {
+  //   if (!isLoading && currentUser && currentUser.length > 0) {
+  //     const currentStatus = currentUser[0].status;
+  //     console.log(currentStatus);
+  //     setStatus(currentStatus);
+  //   }
+  // }, [isLoading, currentUser, status]);
 
-  console.log('current user',currentUser);
+  // console.log('current user',currentUser);
+
+  //instead of this using hooks 
+  const [status] = useStatus()
+  // console.log(status);
 
 
   const options = [

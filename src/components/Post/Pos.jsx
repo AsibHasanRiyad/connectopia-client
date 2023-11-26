@@ -18,10 +18,10 @@ const Pos = ({ pos }) => {
           />
           <h1 className="font-bold text-gray-700 cursor-pointer dark:text-gray-200">
             {name}
-            <h1 className=" text-gray-500 text-sm font-normal">
+            <p className=" text-gray-500 text-sm font-normal">
               {" "}
               Posted At: {postedTime}
-            </h1>
+            </p>
           </h1>
         </div>
 

@@ -15,11 +15,14 @@ import AdminProfile from "../page/AdminDashboard/AdminProfile/AdminProfile";
 import AnnouncementPage from "../page/Announcement/AnnouncementPage";
 import Membership from "../page/Membership/Membership";
 import AdminRoutes from "./AdminRoutes";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -33,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/announcement",
-        element: <AnnouncementPage></AnnouncementPage>,
+        element: <PrivateRoute><AnnouncementPage></AnnouncementPage>  </PrivateRoute>,
       },
       {
         path: "/membership",
-        element: <Membership></Membership>,
+        element:<PrivateRoute> <Membership></Membership>  </PrivateRoute>,
       },
     ],
   },
@@ -52,7 +55,8 @@ const router = createBrowserRouter([
   // dashboard
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element:<PrivateRoute>  <DashboardLayout></DashboardLayout> </PrivateRoute>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       // normal user route
       {

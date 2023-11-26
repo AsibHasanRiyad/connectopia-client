@@ -19,10 +19,10 @@ const Announcements = ({announcement}) => {
         />
         <h1 className="font-bold text-gray-700 text-lg cursor-pointer dark:text-gray-200">
           {announcement?.name}
-          <h1 className=" text-gray-500 text-sm font-normal">
+          <p className=" text-gray-500 text-sm font-normal">
             {" "}
             Email: {announcement?.email}
-          </h1>
+          </p>
         </h1>
       </div>
       <hr className=" my-2" />

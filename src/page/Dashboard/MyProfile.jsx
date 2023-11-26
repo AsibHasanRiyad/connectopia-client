@@ -2,6 +2,7 @@ import useAuth from "../../hooks/useAuth";
 import { IoMail } from "react-icons/io5";
 import usePost from "../../hooks/usePost";
 import MyPos from "./MyPos";
+import useStatus from "../../hooks/useStatus";
 
 const MyProfile = () => {
   const { user } = useAuth();
@@ -9,15 +10,16 @@ const MyProfile = () => {
   const [post] = usePost();
   const last3Post = post.slice(0, 3);
   console.log(last3Post);
+  const [status] = useStatus()
   return (
     <div className="w-full min-h-screen flex items-center justify-center overflow-hidden  dark:bg-gray-800">
       <div>
-        <div className="avatar flex justify-center items-center mt-24 mb-16">
+        <div className="avatar flex justify-center items-center mt-24 mb-16"> 
           <div className=" w-40 md:w-48 absolute rounded-full ">
             <img src={user?.photoURL} />
           </div>
           <span className="badge relative -top-16 -right-16 md:-top-20 md:-right-20 w-24 h-24 rounded-full bg-[#132c50] indicator-item text-white text-xl">
-            Bronze
+            {status}
           </span>
         </div>
         <div className="px-6 py-4 text-center">

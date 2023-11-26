@@ -2,14 +2,14 @@ import Banner from "../../components/Banner/Banner";
 import Post from "../../components/Post/Post";
 import Tags from "../../components/Tags/Tags";
 import useAnnouncement from "../../hooks/useAnnouncement";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 import AnnouncementPage from "../Announcement/AnnouncementPage";
 
 const Home = () => {
   const [announcement] = useAnnouncement();
-  const {user} = useAuth();
-  console.log(user);
-  console.log(announcement?.length);
+  // const {user} = useAuth();
+  // console.log(user);
+  // console.log(announcement?.length);
   
   return (
     <div>
