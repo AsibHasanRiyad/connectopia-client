@@ -12,69 +12,96 @@ import Announcement from "../page/AdminDashboard/Announcement/Announcement";
 import Report from "../page/AdminDashboard/Report/Report";
 import ManageUser from "../page/AdminDashboard/ManageUser/ManageUser";
 import AdminProfile from "../page/AdminDashboard/AdminProfile/AdminProfile";
+import AnnouncementPage from "../page/Announcement/AnnouncementPage";
+import Membership from "../page/Membership/Membership";
+import AdminRoutes from "./AdminRoutes";
 
 const router = createBrowserRouter([
-    {
-        path:'/',
-        element:<MainLayout></MainLayout>,
-        children:[
-            {
-                path:'/',
-                element:<Home></Home>
-            },
-            {
-                path:'/post/:id',
-                element:<PostDetails></PostDetails>,
-                loader: ({params}) => fetch(`http://localhost:5001/post/${params.id}`)
-            },
-        ]
-    },
-    {
-        path:'signUp',
-        element:<SignUp></SignUp>
-    },
-    {
-        path:'login',
-        element:<LogIn></LogIn>
-    },
-    // dashboard
-    {
-        path:'dashboard',
-        element:<DashboardLayout></DashboardLayout>,
-        children:[
-            // normal user route
-            {
-                path:'myProfile',
-                element:<MyProfile></MyProfile>
-            },
-            {
-                path:'addPost',
-                element:<AddPost></AddPost>
-            },
-            {
-                path:'myPost',
-                element:<MyPost></MyPost>
-            },
-            //admin routes
-            {
-                path:'adminProfile',
-                element:<AdminProfile></AdminProfile>
-            },
-            {
-                path:'announcement',
-                element:<Announcement></Announcement>
-            },
-            {
-                path:'report',
-                element:<Report></Report>
-            },
-            {
-                path:'manageUser',
-                element:<ManageUser></ManageUser>
-            },
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/post/:id",
+        element: <PostDetails></PostDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/post/${params.id}`),
+      },
+      {
+        path: "/announcement",
+        element: <AnnouncementPage></AnnouncementPage>,
+      },
+      {
+        path: "/membership",
+        element: <Membership></Membership>,
+      },
+    ],
+  },
+  {
+    path: "signUp",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: "login",
+    element: <LogIn></LogIn>,
+  },
+  // dashboard
+  {
+    path: "dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      // normal user route
+      {
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "addPost",
+        element: <AddPost></AddPost>,
+      },
+      {
+        path: "myPost",
+        element: <MyPost></MyPost>,
+      },
+      //admin routes
+      {
+        path: "adminProfile",
+        element: (
+          <AdminRoutes>
+            <AdminProfile></AdminProfile>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "announcement",
+        element: (
+          <AdminRoutes>
+            <Announcement></Announcement>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "report",
+        element: (
+          <AdminRoutes>
+            <Report></Report>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "manageUser",
+        element: (
+          <AdminRoutes>
+            <ManageUser></ManageUser>
+          </AdminRoutes>
+        ),
+      },
+    ],
+  },
+]);
 
-        ]
-    }
-])
-
-export default router
+export default router;

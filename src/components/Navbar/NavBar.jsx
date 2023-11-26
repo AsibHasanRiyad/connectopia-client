@@ -3,7 +3,9 @@ import Container from "../Container";
 import Button from "../Shared/Button";
 import "./NavBar.css";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";  
+import useAnnouncement from "../../hooks/useAnnouncement";
+import useAdmin from "../../hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
@@ -12,6 +14,12 @@ const NavBar = () => {
       console.log(res);
     });
   };
+ 
+  //announcement count
+  const [announcement] = useAnnouncement();
+  // console.log(announcement);
+  const [isAdmin] = useAdmin()
+
   const navItems = (
     <>
       <li className=" transform hover:scale-125 transition duration-500 ease-out">
@@ -48,7 +56,7 @@ const NavBar = () => {
                   className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="white"
                 >
                   <path
                     strokeLinecap="round"
@@ -78,15 +86,17 @@ const NavBar = () => {
           </div>
           <div className="navbar-end">
             <div className=" mx-6">
-              <button className="btn btn-ghost btn-circle">
-                <div className="indicator">
-                  <IoMdNotificationsOutline className=" text-4xl text-white" />
-                  <span className="badge badge-md bg-[#22b14c] text-white border-none indicator-item">
-                    {" "}
-                    6
-                  </span>
-                </div>
-              </button>
+              <Link to={'/announcement'}>
+                <button className="btn btn-ghost btn-circle">
+                  <div className="indicator">
+                    <IoMdNotificationsOutline className=" text-4xl text-white" />
+                    <span className="badge badge-md bg-[#22b14c] text-white border-none indicator-item">
+                      {" "}
+                      {announcement.length}
+                    </span>
+                  </div>
+                </button>
+              </Link>
             </div>
             {user ? (
               <div className="dropdown dropdown-end">
@@ -108,9 +118,12 @@ const NavBar = () => {
                     </h1>
                   </li>
                   <li>
-                    <Link to={'dashboard/myProfile'}>
+                    {isAdmin ? <Link to={"dashboard/adminProfile"}>
                       <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
-                    </Link>
+                    </Link> :
+                    <Link to={"dashboard/myProfile"}>
+                    <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
+                  </Link>}
                   </li>
                   <li>
                     <button

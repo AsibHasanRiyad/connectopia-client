@@ -15,8 +15,8 @@ const Tags = () => {
   ];
 
   return (
-    <div className=" col-span-2 order-1 md:order-2 bg-[#132c50]  p-4 rounded-md h-80">
-      <h1 className=" text-4xl text-gray-200 font-semibold">
+    <div className=" col-span-2  bg-[#132c50]  p-4 rounded-md">
+      <h1 className=" text-xl md:text-2xl lg:text-4xl text-gray-200 font-semibold">
         Use these tags to search post for finding better result
       </h1>
       <div className=" flex flex-wrap gap-4 mt-4">

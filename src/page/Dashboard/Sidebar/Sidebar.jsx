@@ -11,10 +11,14 @@ import { IoHome } from "react-icons/io5";
 import { TfiAnnouncement } from "react-icons/tfi";
 import "./Sidebar.css";
 import usePost from "../../../hooks/usePost";
+import useAdmin from "../../../hooks/useAdmin";
 const Sidebar = () => {
   const [post] = usePost();
-  // TODO: make is admin dynamic
-  const isAdmin = true;
+  
+  const [isAdmin] = useAdmin()
+  // const isAdmin = true
+  console.log('is admin?',isAdmin);
+
   return (
     <div className="drawer lg:drawer-open z-10 h-full">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

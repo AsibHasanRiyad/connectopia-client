@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../page/Dashboard/Sidebar/Sidebar";
 
 
-
 const DashboardLayout = () => {
     return (
         <div className=" flex">
