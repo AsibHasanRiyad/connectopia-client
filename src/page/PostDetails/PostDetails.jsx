@@ -2,10 +2,16 @@ import { useLoaderData } from "react-router-dom";
 import { FaRegCommentAlt, FaRegShareSquare } from "react-icons/fa";
 import { BiDislike, BiLike } from "react-icons/bi";
 import Button from "../../components/Shared/Button";
+import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const PostDetails = () => {
   const data = useLoaderData();
+  const axiosSecure = useAxiosSecure();
   const {
+    _id,
     authorImage,
     name,
     tags,
@@ -17,6 +23,29 @@ const PostDetails = () => {
   } = data;
   console.log(data);
   // console.log(data);
+
+  const {user} = useAuth()
+  console.log(user);
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    data.postedTime = new Date();
+    data.rootPostId = _id;
+    data.email = user.email;
+    data.image = user.photoURL
+    data.name = user.displayName
+    axiosSecure.post('/comments', data).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Done!",
+          text: "Thanks for your comment",
+          icon: "success",
+        });
+      }
+    });
+  };
+
   return (
     <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
       <div className="flex items-center">
@@ -27,10 +56,10 @@ const PostDetails = () => {
         />
         <h1 className="font-bold text-gray-700 cursor-pointer dark:text-gray-200">
           {name}
-          <h1 className=" text-gray-500 text-sm font-normal">
+          <p className=" text-gray-500 text-sm font-normal">
             {" "}
             Posted At: {postedTime}
-          </h1>
+          </p>
         </h1>
       </div>
 
@@ -42,7 +71,8 @@ const PostDetails = () => {
         <p className="mt-2 text-gray-600 dark:text-gray-300"> Tags: #{tags}</p>
         <p className="mt-2 text-gray-600 dark:text-gray-300 text-xl">
           {" "}
-          <span className=" font-bold">Post Description: </span> {postDescription}
+          <span className=" font-bold">Post Description: </span>{" "}
+          {postDescription}
         </p>
       </div>
 
@@ -65,16 +95,16 @@ const PostDetails = () => {
           </button>
         </div>
       </div>
-      <div>
-        <textarea
-          className="textarea textarea-bordered w-full h-52 mt-6"
-          placeholder="Write your comment here......"
-        ></textarea>
 
-        <div className=" flex justify-end mt-2">
-        <Button type={'primary'} title={'Comment'}></Button>
-        </div>
-      </div>
+      {/* comment section */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className="textarea textarea-bordered w-full h-52 my-6"
+          placeholder="Write your comment here......"
+          {...register("comment", { required: true })}
+        />
+        <Button title={"Submit"} type={"secondary"}></Button>
+      </form>
     </div>
   );
 };

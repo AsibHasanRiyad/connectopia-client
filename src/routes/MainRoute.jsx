@@ -17,6 +17,7 @@ import Membership from "../page/Membership/Membership";
 import AdminRoutes from "./AdminRoutes";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
+import Comments from "../components/Comments/Comments";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/membership",
         element:<PrivateRoute> <Membership></Membership>  </PrivateRoute>,
+      },
+      {
+        path: "/comments/:id",
+        element:<PrivateRoute> <Comments></Comments>  </PrivateRoute>,
       },
     ],
   },

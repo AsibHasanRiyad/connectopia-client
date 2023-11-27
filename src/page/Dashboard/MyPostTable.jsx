@@ -2,6 +2,7 @@ import { FaComment } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import usePost from "../../hooks/usePost";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const MyPostTable = ({ post }) => {
@@ -41,9 +42,11 @@ const MyPostTable = ({ post }) => {
         <td>{upVote}</td>
         <td>{downVote}</td>
         <td>
-          <button className="btn btn-circle btn-md btn-outline hover:bg-[#132c50]">
-            <FaComment></FaComment>
-          </button>
+          <Link to={`/comments/${_id}`}>
+            <button className="btn btn-circle btn-md btn-outline hover:bg-[#132c50]">
+              <FaComment></FaComment>
+            </button>
+          </Link>
         </td>
         <td>
           <button

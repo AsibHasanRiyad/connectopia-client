@@ -61,23 +61,22 @@ const PaymentForm = () => {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
-
-        //save payment info and change user status 
+        //save payment info and change user status
         const paymentInfo = {
-            email: user?.email,
-            price:price,
-            date: new Date(),
-            status: 'pending',
-            transactionId: transactionId
-        }
-        const res = await axiosSecure.post ('/payments', paymentInfo)
-        console.log('payment is coming',res.data);
+          email: user?.email,
+          price: price,
+          date: new Date(),
+          status: "pending",
+          transactionId: transactionId,
+        };
+        const res = await axiosSecure.post("/payments", paymentInfo);
+        console.log("payment is coming", res.data);
         if (res.data.result.insertedId) {
-            Swal.fire({
-                title: "Payment Successful!",
-                text: "Congratulations, you can now create more than 5 post",
-                icon: "success"
-              });
+          Swal.fire({
+            title: "Payment Successful!",
+            text: "Congratulations, you can now create more than 5 post",
+            icon: "success",
+          });
         }
       }
     }
@@ -115,13 +114,19 @@ const PaymentForm = () => {
           {" "}
           {error.message}
         </p>
-        <div className=" py-4 text-green-500 text-center">
-          <h1 className=" text-3xl ">
-          Payment Successful
-          </h1>
-          <br />
-          <h1 className=" text-gray-600"> <span className=" font-bold text-gray-800">Your Transaction Id: </span> {transactionId}</h1>
-        </div>
+        {transactionId && (
+          <div className=" py-4 text-green-500 text-center">
+            <h1 className=" text-3xl ">Payment Successful</h1>
+            <br />
+            <h1 className=" text-gray-600">
+              {" "}
+              <span className=" font-bold text-gray-800">
+                Your Transaction Id:{" "}
+              </span>{" "}
+              {transactionId}
+            </h1>
+          </div>
+        )}
       </form>
     </div>
   );
