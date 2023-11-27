@@ -2,8 +2,9 @@
 // import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Pos from "./Pos";
 import Button from "../Shared/Button";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { SearchContext } from "../../provider/searchProvider";
 
 const Post = () => {
   const [post, setPost] = useState([]);
@@ -30,6 +31,9 @@ const Post = () => {
   for (let i = 0; i < numberOfPage; i++) {
     pages.push(i);
   }
+
+
+
   // console.log(pages);
   // console.log(currentPage);
 
@@ -52,14 +56,23 @@ const Post = () => {
   // },[currentPage])
 
   //search
-  const [tag, setTag] = useState("");
-  const handelSearch = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const input = form.input.value;
-    console.log(input);
-    setTag(input);
-  };
+  // const [tag, setTag] = useState("");
+  // const handelSearch = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const input = form.input.value;
+  //   console.log(input);
+  //   setTag(input);
+  // };
+
+
+  //search functionality is moved to Search provider using context api to search from different component
+
+
+
+  
+  
+  const {tag} = useContext(SearchContext)
 
   //alternative  3
   useEffect(() => {
@@ -83,7 +96,7 @@ const Post = () => {
       </div>
       <hr />
       <div>
-        <form onSubmit={handelSearch}>
+        {/* <form onSubmit={handelSearch}>
           <input
             className=" w-full  bg-gray-200 p-4 "
             type="text"
@@ -93,16 +106,14 @@ const Post = () => {
           <button type=" submit" className=" btn btn-primary">
             Submit
           </button>
-        </form>
+        </form> */}
       </div>
       <hr />
       <div className=" space-y-8 mt-6">
        {
          reversedPost.map(pos => <Pos pos={pos} key={pos._id}></Pos> )
        }
-        {/* {tag
-          ? reversedPost.map((pos) => <Pos pos={pos} key={pos._id} />)
-          : reversedPost.map((pos) => <Pos pos={pos} key={pos._id} />)} */}
+
       </div>
       <div className=" flex justify-center items-center my-6">
         {pages.map((page) => (
