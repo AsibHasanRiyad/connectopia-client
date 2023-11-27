@@ -3,9 +3,11 @@
 import Pos from "./Pos";
 import Button from "../Shared/Button";
 import { useEffect, useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Post = () => {
   const [post, setPost] = useState([])
+  const axiosPublic = useAxiosPublic()
   const [totalPost,setTotalPost] = useState(0)
     // console.log(post.length);
     const reversedPost = post.slice().reverse();
@@ -29,7 +31,7 @@ const Post = () => {
       pages.push(i);
     }
     // console.log(pages);
-    console.log(currentPage);
+    // console.log(currentPage);
 
 
   // const axiosPublic = useAxiosPublic();
@@ -43,12 +45,21 @@ const Post = () => {
   // });
 
 
-  useEffect(() =>{
-    fetch(`http://localhost:5001/post?page=${currentPage}&size=${postPerPage}`)
-    .then(res => res.json())
-    .then(data => setPost(data))
-  },[currentPage])
+  // useEffect(() =>{
+  //   fetch(`http://localhost:5001/post?page=${currentPage}&size=${postPerPage}`)
+  //   .then(res => res.json())
+  //   .then(data => setPost(data))
+  // },[currentPage])
 
+
+  //alternative 
+  useEffect(() =>{
+    const post = async () =>{
+      const res = await axiosPublic.get(`/post?page=${currentPage}&size=${postPerPage}`)
+      setPost(res.data)
+    }
+    post()
+  },[axiosPublic, currentPage])
 
 
 
