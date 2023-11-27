@@ -39,7 +39,7 @@ const LogIn = () => {
         console.log(result);
         toast.success('Logged In...', {id: toastId});
         const userInfo = {
-          name: result?.user?.name,
+          name: result?.user?.displayName,
           email: result?.user?.email,
           image:result?.user?.photoURL,
           role:'user',

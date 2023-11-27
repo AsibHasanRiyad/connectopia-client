@@ -63,7 +63,7 @@ const SignUp = () => {
     googleSignIn()
       .then((result) => {
         toast.success("Logged In...", { id: toastId });
-        console.log(result.user.photoURL);
+        console.log(result.user.displayName);
         updateProfile(result.user, {
           displayName: result?.user?.name,
           photoURL: result?.user?.photoURL,
