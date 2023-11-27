@@ -53,17 +53,17 @@ const Banner = () => {
             Post
           </span>
         </h1>
-        <div className="flex flex-col mt-8 space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
+        <div className=" flex justify-center items-center my-6">
         <form onSubmit={handelSearch}>
+          <div className=" flex items-start justify-center gap-4">
           <input
-            className=" w-full  bg-gray-200 p-4 "
+            className=" bg-gray-200 p-4 mb-3 w-[60vw] rounded-md "
             type="text"
             name="input"
             placeholder="Search......."
           />
-          <button type=" submit" className=" btn btn-primary">
-            Submit
-          </button>
+          <Button type={'secondary'} title={'Search'} ></Button>
+          </div>
         </form>
         </div>
       </div>

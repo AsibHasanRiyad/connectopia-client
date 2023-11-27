@@ -177,6 +177,7 @@ const AddPost = () => {
                     className=" mt-2"
                     onChange={handelChange}
                     options={options}
+                    required
                   />
                 </div>
               </div>
@@ -205,12 +206,13 @@ const AddPost = () => {
               </div>
 
               <div className="flex justify-end mt-6">
-                <button
+                {/* <button
                   type="submit"
                   className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                 >
                   Post
-                </button>
+                </button> */}
+                <Button type={'secondary'} title={'Post'}></Button>
               </div>
             </form>
           </div>
