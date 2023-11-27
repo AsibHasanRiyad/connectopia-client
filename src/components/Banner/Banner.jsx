@@ -2,6 +2,7 @@ import { useContext } from "react";
 import bannerImage from "../../assets/5267.jpg";
 import Button from "../Shared/Button";
 import { SearchContext } from "../../provider/searchProvider";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     const {getSearchValue} = useContext(SearchContext)
@@ -31,7 +32,9 @@ const Banner = () => {
               <span className="text-blue-500 ">Connectopia</span> where your
               story unfolds
             </p>
+            <Link to={'/dashboard/addPost'}>
             <Button type={"primary"} title={"Post Your Idea"}></Button>
+            </Link>
           </div>
         </div>
 

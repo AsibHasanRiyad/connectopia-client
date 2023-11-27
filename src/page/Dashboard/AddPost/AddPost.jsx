@@ -97,7 +97,7 @@ const AddPost = () => {
   }
   return (
     <div className=" min-h-screen flex justify-center items-center">
-      <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <section className="max-w-4xl w-full p-6 mx-4 my-4 bg-white rounded-md shadow-md dark:bg-gray-800">
         {status === "Bronze" && post.length >= 5 ? (
           <div >
             <h1 className="  text-3xl text-center text-green-500 font-bold">Become a member to create more post</h1>

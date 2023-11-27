@@ -1,12 +1,26 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Pos = ({ pos }) => {
   // console.log(pos);
   const { authorImage, name, tags, upVote, downVote, postedTime, postTitle,_id } =
     pos;
+
+    const [comments, setComments] = useState([])
+    const rootPostId = _id;
+    const axiosSecure = useAxiosSecure()
+  
+   useEffect( () =>{
+    axiosSecure.get(`/comments?rootPostId=${rootPostId}`)
+    .then(res =>{
+      console.log(res.data);
+      setComments(res.data)
+    })
+   },[axiosSecure, rootPostId]) 
   return (
     <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
       <Link to={`/post/${_id}`}>
@@ -47,7 +61,7 @@ const Pos = ({ pos }) => {
             </button>
             |
             <button className=" flex gap-2 items-center justify-center">
-              <FaRegCommentAlt></FaRegCommentAlt> <span>Comment Count</span>
+              <FaRegCommentAlt></FaRegCommentAlt> <span> {comments.length} </span>
             </button>
           </div>
         </div>

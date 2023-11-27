@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { FaRegCommentAlt, FaRegShareSquare } from "react-icons/fa";
 import { BiDislike, BiLike } from "react-icons/bi";
 import Button from "../../components/Shared/Button";
@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import CommentsOnPost from "../../components/Comments/CommentsOnPost";
+import { useEffect, useState } from "react";
 
 const PostDetails = () => {
   const data = useLoaderData();
@@ -23,6 +25,7 @@ const PostDetails = () => {
   } = data;
   console.log(data);
   // console.log(data);
+  
 
   const {user} = useAuth()
   console.log(user);
@@ -46,6 +49,20 @@ const PostDetails = () => {
     });
   };
 
+  const [comments, setComments] = useState([])
+  const {id} = useParams()
+  console.log(id);
+  const rootPostId = id;
+
+ useEffect( () =>{
+  axiosSecure.get(`/comments?rootPostId=${rootPostId}`)
+  .then(res =>{
+    console.log(res.data);
+    setComments(res.data)
+  })
+ },[axiosSecure, rootPostId]) 
+
+ console.log(comments.length);
   return (
     <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
       <div className="flex items-center">
@@ -87,7 +104,7 @@ const PostDetails = () => {
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
-            <FaRegCommentAlt></FaRegCommentAlt>
+            <FaRegCommentAlt></FaRegCommentAlt> <span>{comments.length}</span>
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
@@ -105,6 +122,8 @@ const PostDetails = () => {
         />
         <Button title={"Submit"} type={"secondary"}></Button>
       </form>
+      <hr />
+      <CommentsOnPost></CommentsOnPost>
     </div>
   );
 };
