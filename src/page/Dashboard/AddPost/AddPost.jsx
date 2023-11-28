@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Select from "react-select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import usePost from "../../../hooks/usePost";
 
@@ -14,16 +14,15 @@ import { Link } from "react-router-dom";
 import Button from "../../../components/Shared/Button";
 import useStatus from "../../../hooks/useStatus";
 
-
 const AddPost = () => {
   const { user, loading } = useAuth();
   // console.log(user?.email);
   const [tags, setTags] = useState("");
+  const [option, setOption] = useState("");
   const axiosSecure = useAxiosSecure();
   const [post, refetch] = usePost();
   // console.log(post);
   // const [status, setStatus] = useState('')
-
 
   // const { data: currentUser } = useQuery({
   //   queryKey: ["currentUser", user?.email],
@@ -51,25 +50,31 @@ const AddPost = () => {
 
   // console.log('current user',currentUser);
 
-  //instead of this using hooks 
-  const [status] = useStatus()
+  //instead of this using hooks
+  const [status] = useStatus();
   // console.log(status);
 
-
-  const options = [
-    { value: "technology", label: "Technology" },
-    { value: "travel", label: "Travel" },
-    { value: "fitness", label: "Fitness" },
-    { value: "foodie", label: "Foodie" },
-    { value: "photography", label: "Photography" },
-    { value: "music", label: "Music" },
-    { value: "fashion", label: "Fashion" },
-    { value: "art", label: "Art" },
-    { value: "science", label: "Science" },
-    { value: "books", label: "Books" },
-    { value: "news", label: "News" },
-    { value: "sports", label: "Sports" },
-  ];
+  // const options = [
+  //   { value: "technology", label: "Technology" },
+  //   { value: "travel", label: "Travel" },
+  //   { value: "fitness", label: "Fitness" },
+  //   { value: "foodie", label: "Foodie" },
+  //   { value: "photography", label: "Photography" },
+  //   { value: "music", label: "Music" },
+  //   { value: "fashion", label: "Fashion" },
+  //   { value: "art", label: "Art" },
+  //   { value: "science", label: "Science" },
+  //   { value: "books", label: "Books" },
+  //   { value: "news", label: "News" },
+  //   { value: "sports", label: "Sports" },
+  // ];
+  //tags
+  useEffect(() => {
+    axiosSecure.get("/tags").then((res) => {
+      console.log(res.data);
+      setOption(res.data);
+    });
+  }, [axiosSecure]);
 
   const handelChange = (e) => {
     setTags(e.value);
@@ -93,18 +98,20 @@ const AddPost = () => {
     });
   };
   if (loading) {
-    return <Loader></Loader>
+    return <Loader></Loader>;
   }
   return (
     <div className=" min-h-screen flex justify-center items-center">
       <section className="max-w-4xl w-full p-6 mx-4 my-4 bg-white rounded-md shadow-md dark:bg-gray-800">
         {status === "Bronze" && post.length >= 5 ? (
-          <div >
-            <h1 className="  text-3xl text-center text-green-500 font-bold">Become a member to create more post</h1>
+          <div>
+            <h1 className="  text-3xl text-center text-green-500 font-bold">
+              Become a member to create more post
+            </h1>
             <div className=" flex justify-center items-center my-6">
-            <Link to={"/membership"}>
-              <Button title={"Become A Member"} type={"primary"}></Button>
-            </Link>
+              <Link to={"/membership"}>
+                <Button title={"Become A Member"} type={"primary"}></Button>
+              </Link>
             </div>
           </div>
         ) : (
@@ -177,7 +184,7 @@ const AddPost = () => {
                   <Select
                     className=" mt-2"
                     onChange={handelChange}
-                    options={options}
+                    options={option}
                     required
                   />
                 </div>
@@ -213,11 +220,11 @@ const AddPost = () => {
                 >
                   Post
                 </button> */}
-                <Button type={'secondary'} title={'Post'}></Button>
+                <Button type={"secondary"} title={"Post"}></Button>
               </div>
             </form>
           </div>
-         )} 
+        )}
       </section>
     </div>
   );

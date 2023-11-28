@@ -7,6 +7,8 @@ import { FaUsers } from "react-icons/fa6";
 import { PieChart, Pie, Cell, Legend } from "recharts";
 
 import { MdOutlineArticle } from "react-icons/md";
+import AddTags from "./AddTags";
+import Tags from "../../../components/Tags/Tags";
 
 const AdminProfile = () => {
   const [postCount, setPostCount] = useState("");
@@ -31,11 +33,11 @@ const AdminProfile = () => {
   });
 
   //pie chart
-  console.log('vlaue', postCount, commentCount);
+  console.log("vlaue", postCount, commentCount);
   const data = [
     { name: "Total Users", value: usersCount },
     { name: "Total Post", value: postCount },
-    { name: "Total Comments", value: commentCount},
+    { name: "Total Comments", value: commentCount },
   ];
 
   const COLORS = ["#00D7C0", "#4A00FF", "#FF00D3"];
@@ -67,7 +69,7 @@ const AdminProfile = () => {
 
   return (
     <div>
-      <div className="stats shadow w-full py-10">
+      <div className="stats  shadow-md w-full py-10 bg-slate-100">
         <div className="stat">
           <div className="stat-figure text-secondary">
             <div className="avatar">
@@ -110,25 +112,38 @@ const AdminProfile = () => {
       </div>
 
       {/* pie chart */}
-     <div className=" flex justify-center items-center">
-     <PieChart width={400} height={400}>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={120}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Legend></Legend>
-      </PieChart>
-     </div>
+      <div className=" flex justify-center items-center">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={120}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+          <Legend></Legend>
+        </PieChart>
+      </div>
+      <hr className=" my-6" />
+      <div className=" flex flex-col md:flex-row gap-5 z-0">
+        <div className=" w-full md:w-1/2  border-r-2 pr-6">
+          <AddTags></AddTags>
+        </div>
+        <div className=" w-full md:w-1/2">
+          <h1 className="text-4xl text-[#132c50] font-semibold mb-4">Current Tags:</h1>
+          <Tags></Tags>
+        </div>
+      </div>
     </div>
   );
 };
