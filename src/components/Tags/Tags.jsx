@@ -40,7 +40,7 @@ if (loading) {
       </h1>
       <div className=" flex flex-wrap gap-4 mt-4">
         {tags.map((tag) => (
-          <p className=" text-gray-200" key={tag}>#{tag.value}</p>
+          <p className=" text-gray-200" key={tag._id}>#{tag.value}</p>
         ))}
       </div>
     </div>

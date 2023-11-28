@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import CommentsOnPost from "../../components/Comments/CommentsOnPost";
 import { useEffect, useState } from "react";
+import { RiEmotionSadLine } from "react-icons/ri";
 
 const PostDetails = () => {
   const data = useLoaderData();
@@ -25,9 +26,8 @@ const PostDetails = () => {
   } = data;
   console.log(data);
   // console.log(data);
-  
 
-  const {user} = useAuth()
+  const { user } = useAuth();
   console.log(user);
 
   const { register, handleSubmit } = useForm();
@@ -35,9 +35,9 @@ const PostDetails = () => {
     data.postedTime = new Date();
     data.rootPostId = _id;
     data.email = user.email;
-    data.image = user.photoURL
-    data.name = user.displayName
-    axiosSecure.post('/comments', data).then((res) => {
+    data.image = user.photoURL;
+    data.name = user.displayName;
+    axiosSecure.post("/comments", data).then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
@@ -49,20 +49,47 @@ const PostDetails = () => {
     });
   };
 
-  const [comments, setComments] = useState([])
-  const {id} = useParams()
+  const [comments, setComments] = useState([]);
+  const { id } = useParams();
   console.log(id);
   const rootPostId = id;
 
- useEffect( () =>{
-  axiosSecure.get(`/comments?rootPostId=${rootPostId}`)
-  .then(res =>{
-    console.log(res.data);
-    setComments(res.data)
-  })
- },[axiosSecure, rootPostId]) 
+  useEffect(() => {
+    axiosSecure.get(`/comments?rootPostId=${rootPostId}`).then((res) => {
+      console.log(res.data);
+      setComments(res.data);
+    });
+  }, [axiosSecure, rootPostId]);
 
- console.log(comments.length);
+  console.log(comments.length);
+
+  //handel UpVote
+  const handelUpVote = () => {
+    axiosSecure.patch(`/post/upvote/${_id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          title: "Voted",
+          text: "Thanks for your contribution",
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  //handel DownVote
+  const handelDownVote = () => {
+    axiosSecure.patch(`/post/downvote/${_id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          title: 'Thanks' ,
+          text: "Thanks for your feedback",
+          icon: "success",
+        });
+      }
+    });
+  };
   return (
     <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
       <div className="flex items-center">
@@ -95,11 +122,17 @@ const PostDetails = () => {
 
       <div className="flex items-center justify-between mt-4">
         <div className=" flex gap-4 bg-gray-100 px-4 py-2 rounded">
-          <button className=" flex gap-2 items-center justify-center">
+          <button
+            onClick={handelUpVote}
+            className=" flex gap-2 items-center justify-center"
+          >
             <BiLike /> <span>{upVote}</span>
           </button>
           |
-          <button className=" flex gap-2 items-center justify-center">
+          <button
+            onClick={handelDownVote}
+            className=" flex gap-2 items-center justify-center"
+          >
             <BiDislike /> <span>{downVote}</span>
           </button>
           |
