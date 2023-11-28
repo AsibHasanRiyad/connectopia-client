@@ -11,7 +11,9 @@ const Post = () => {
   const axiosPublic = useAxiosPublic();
   const [totalPost, setTotalPost] = useState(0);
   // console.log(post.length);
-  const reversedPost = post.slice().reverse();
+  // const reversedPost = post.slice().reverse();
+  const reversedPost = post.sort((a, b) => new Date(b.postedTime) - new Date(a.postedTime));
+  console.log('reversing post order',reversedPost);
 
   //total post
   useEffect(() => {
