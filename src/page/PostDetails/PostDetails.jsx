@@ -122,7 +122,6 @@ const PostDetails = () => {
         />
         <Button title={"Submit"} type={"secondary"}></Button>
       </form>
-      <hr />
       <CommentsOnPost></CommentsOnPost>
     </div>
   );

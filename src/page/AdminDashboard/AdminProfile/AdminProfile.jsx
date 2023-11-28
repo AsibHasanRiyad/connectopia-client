@@ -4,7 +4,7 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaCommentAlt } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
-
+import { PieChart, Pie, Cell, Legend } from "recharts";
 
 import { MdOutlineArticle } from "react-icons/md";
 
@@ -30,6 +30,41 @@ const AdminProfile = () => {
     setUsersCount(res.data.count);
   });
 
+  //pie chart
+  console.log('vlaue', postCount, commentCount);
+  const data = [
+    { name: "Total Users", value: usersCount },
+    { name: "Total Post", value: postCount },
+    { name: "Total Comments", value: commentCount},
+  ];
+
+  const COLORS = ["#00D7C0", "#4A00FF", "#FF00D3"];
+
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+  }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
   return (
     <div>
       <div className="stats shadow w-full py-10">
@@ -50,7 +85,7 @@ const AdminProfile = () => {
         </div>
         <div className="stat">
           <div className="stat-figure text-accent">
-            <FaUsers  className=" text-5xl"/>
+            <FaUsers className=" text-5xl" />
           </div>
           <div className="stat-title">Total Users</div>
           <div className="stat-value text-accent text-5xl">{usersCount}</div>
@@ -73,6 +108,27 @@ const AdminProfile = () => {
           </div>
         </div>
       </div>
+
+      {/* pie chart */}
+     <div className=" flex justify-center items-center">
+     <PieChart width={400} height={400}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          labelLine={false}
+          label={renderCustomizedLabel}
+          outerRadius={120}
+          fill="#8884d8"
+          dataKey="value"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Legend></Legend>
+      </PieChart>
+     </div>
     </div>
   );
 };
