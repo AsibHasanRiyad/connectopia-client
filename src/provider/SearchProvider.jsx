@@ -8,7 +8,7 @@ const SearchProvider = ({ children }) => {
     const getSearchValue = (value) =>{
         return setSearchTag(value)
     }
-    console.log(searchTag);
+    // console.log(searchTag);
     useEffect(() =>{
         setTag(searchTag)
     },[searchTag])

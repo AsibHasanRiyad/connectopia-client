@@ -17,7 +17,7 @@ const Pos = ({ pos }) => {
    useEffect( () =>{
     axiosSecure.get(`/comments?rootPostId=${rootPostId}`)
     .then(res =>{
-      console.log(res.data);
+      // console.log(res.data);
       setComments(res.data)
     })
    },[axiosSecure, rootPostId]) 

@@ -13,14 +13,14 @@ const Post = () => {
   // console.log(post.length);
   // const reversedPost = post.slice().reverse();
   const reversedPost = post.sort((a, b) => new Date(b.postedTime) - new Date(a.postedTime));
-  console.log('reversing post order',reversedPost);
+  // console.log('reversing post order',reversedPost);
 
   //total post
   useEffect(() => {
     fetch("http://localhost:5001/postCount")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.count);
+        // console.log(data.count);
         setTotalPost(data.count);
       });
   }, []);
