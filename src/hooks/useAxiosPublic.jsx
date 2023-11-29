@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-    baseURL:'http://localhost:5001/'
+    baseURL:'https://connectopia-server.vercel.app/'
 })
 const useAxiosPublic = () => {
     return axiosPublic
