@@ -22,9 +22,10 @@ const MyPostTable = ({ post }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`post/${id}`).then((res) => {
-          // console.log(res.data);
+          console.log(res);
           refetch();
-          if (res.data.deletedCount > 1) {
+
+          if (res.status === 200) {
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",

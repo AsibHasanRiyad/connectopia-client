@@ -88,7 +88,7 @@ const AddPost = () => {
     axiosSecure.post("/post", data).then((res) => {
       console.log(res.data);
       refetch();
-      if (res.data.insertedId) {
+      if (res.status === 200) {
         Swal.fire({
           title: "Added!",
           text: "Your article has been posted to the timeline.",

@@ -22,7 +22,7 @@ const AddTags = () => {
       if (result.isConfirmed) {
         axiosSecure.post("/tags", data).then((res) => {
           console.log(res.data);
-          if (res.data.insertedId) {
+          if (res.status === 200) {
             Swal.fire({
               title: "Added!",
               text: `${data.value} is added in the tag option`,

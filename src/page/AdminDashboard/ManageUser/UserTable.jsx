@@ -20,7 +20,7 @@ const UserTable = ({ user , refetch}) => {
       if (result.isConfirmed) {
         axiosSecure.patch(`/users/${user._id}`)
         .then((res) => {
-          if (res.data.modifiedCount > 0) {
+          if (res.status === 200) {
             refetch()
             Swal.fire({
               title: "Successful!",

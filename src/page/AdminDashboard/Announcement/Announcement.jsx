@@ -13,7 +13,7 @@ const Announcement = () => {
     console.log(data);
     axiosSecure.post("/announcement", data).then((res) => {
       console.log(res.data);
-      if (res.data.insertedId) {
+      if (res.status === 200) {
         Swal.fire({
           title: "Announcement Is added!",
           text: "Visit announcement page to see it",

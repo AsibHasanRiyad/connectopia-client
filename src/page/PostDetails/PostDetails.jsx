@@ -51,8 +51,8 @@ const PostDetails = () => {
     data.name = user.displayName;
     console.log(data);
     axiosSecure.post("/comments", data).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
+      console.log(res);
+      if (res.status === 200) {
         Swal.fire({
           title: "Done!",
           text: "Thanks for your comment",
@@ -80,8 +80,8 @@ const PostDetails = () => {
   //handel UpVote
   const handelUpVote = () => {
     axiosSecure.patch(`/post/upvote/${_id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount > 0) {
+      console.log(res);
+      if (res.status === 200) {
         Swal.fire({
           title: "Voted",
           text: "Thanks for your contribution",
@@ -96,7 +96,7 @@ const PostDetails = () => {
   const handelDownVote = () => {
     axiosSecure.patch(`/post/downvote/${_id}`).then((res) => {
       console.log(res.data);
-      if (res.data.modifiedCount > 0) {
+      if (res.status === 200) {
         Swal.fire({
           title: 'Thanks' ,
           text: "Thanks for your feedback",
