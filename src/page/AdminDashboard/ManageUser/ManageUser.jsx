@@ -10,7 +10,7 @@ const ManageUser = () => {
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
-            <tr>
+            <tr className=" text-green-500 text-lg">
               <th>User Image</th>
               <th>User Name</th>
               <th>User Email</th>
@@ -18,7 +18,7 @@ const ManageUser = () => {
               <th> Subscription Status </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className=" text-gray-100">
             {users?.map((user) => (
               <UserTable key={user._id} refetch={refetch} user={user}></UserTable>
             ))}

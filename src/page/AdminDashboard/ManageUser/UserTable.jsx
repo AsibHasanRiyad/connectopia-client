@@ -50,8 +50,8 @@ const UserTable = ({ user , refetch}) => {
           {user.role === "admin" ? (
             <p>Admin</p>
           ) : (
-            <button  onClick={() => handelRole(user)} className="btn btn-circle btn-outline">
-               <FaUsersGear className=" text-2xl" />
+            <button  onClick={() => handelRole(user)} className="btn btn-circle btn-outline hover:bg-green-500">
+               <FaUsersGear className=" text-2xl text-gray-100 " />
           </button>
           )}
         </th>
