@@ -9,7 +9,7 @@ const CommentsTable = ({ com }) => {
     <>
       <tr>
         <td>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-gray-100">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
                 <img src={image} alt="Avatar Tailwind CSS Component" />
@@ -26,9 +26,9 @@ const CommentsTable = ({ com }) => {
             {comment.length > 20 ? (
               <div>
                 {" "}
-                <h1>{commentMax}</h1>
+                <h1 className=" text-gray-100">{commentMax}</h1>
                 <button
-                  className=" text-blue-600"
+                  className=" text-gray-100"
                   onClick={() =>
                     document.getElementById("my_modal_1").showModal()
                   }
@@ -37,7 +37,7 @@ const CommentsTable = ({ com }) => {
                 </button>
                 <dialog id="my_modal_1" className="modal">
                   <div className="modal-box">
-                    <p className="py-4">
+                    <p className="py-4 text-gray-900">
                       {comment}
                     </p>
                     <div className="modal-action">
@@ -50,15 +50,15 @@ const CommentsTable = ({ com }) => {
                 </dialog>{" "}
               </div>
             ) : (
-              <h1>{comment}</h1>
+              <h1 className=" text-gray-100">{comment}</h1>
             )}
           </h1>
         </td>
-        <td>{postedTime}</td>
-        <th>
+        <td className=" text-gray-100">{postedTime}</td>
+        <th className=" text-gray-100">
           <h1>Feed Back</h1>
         </th>
-        <td>
+        <td className=" text-gray-100">
           <h1>Report</h1>
         </td>
       </tr>

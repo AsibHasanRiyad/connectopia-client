@@ -36,10 +36,10 @@ if (loading) {
 }
   return (
     <div 
-    data-aos="fade-down"
-    data-aos-offset="100"
-    data-aos-easing="ease-in-sine"
-    data-aos-duration="1000"
+    // data-aos="fade-down"
+    // data-aos-offset="100"
+    // data-aos-easing="ease-in-sine"
+    // data-aos-duration="1000"
     className=" col-span-2  bg-[#132c50] rounded-md">
       <h1 className=" text-xl md:text-2xl lg:text-4xl text-green-500 font-semibold">
       Optimize searches by tags:

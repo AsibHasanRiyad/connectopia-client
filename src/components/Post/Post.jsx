@@ -17,7 +17,7 @@ const Post = () => {
 
   //total post
   useEffect(() => {
-    fetch("http://localhost:5001/postCount")
+    fetch("https://connectopia-server.vercel.app/postCount")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data.count);
@@ -52,7 +52,7 @@ const Post = () => {
 
   //alternative 2
   // useEffect(() =>{
-  //   fetch(`http://localhost:5001/post?page=${currentPage}&size=${postPerPage}`)
+  //   fetch(`https://connectopia-server.vercel.app/post?page=${currentPage}&size=${postPerPage}`)
   //   .then(res => res.json())
   //   .then(data => setPost(data))
   // },[currentPage])

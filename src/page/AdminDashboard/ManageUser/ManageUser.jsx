@@ -7,7 +7,7 @@ const ManageUser = () => {
   console.log(users);
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto max-w-xs md:max-w-xl lg:max-w-full">
         <table className="table">
           <thead>
             <tr className=" text-green-500 text-lg">

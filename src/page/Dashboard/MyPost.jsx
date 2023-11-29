@@ -13,7 +13,7 @@ const MyPost = () => {
                     reversedPost.map(pos => <MyPos pos={pos} key={pos._id}></MyPos>)
                 }
             </div> */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto max-w-xs md:max-w-xl lg:max-w-full">
         <table className="table text-gray-100">
           <thead>
             <tr className=" text-green-500">

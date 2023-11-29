@@ -165,7 +165,7 @@ const PostDetails = () => {
       {/* comment section */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          className="textarea bg-transparent border border-white textarea-bordered w-full h-52 my-6"
+          className="textarea bg-transparent border border-white shadow-md shadow-white text-white textarea-bordered w-full h-52 my-6"
           placeholder="Write your comment here......"
           {...register("comment", { required: true })}
         />

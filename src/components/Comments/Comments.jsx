@@ -24,11 +24,11 @@ const Comments = () => {
 
     return (
         <div>
-             <h1 className=" text-center text-5xl font-bold py-6">Comments</h1>
+             <h1 className=" text-center text-gray-100 text-5xl font-bold py-6">Comments</h1>
              <div className="overflow-x-auto">
         <table className="table">
           <thead>
-            <tr>
+            <tr className=" text-green-500">
               <th>Commenter</th>
               <th>Comments</th>
               <th>Time</th>
