@@ -27,7 +27,7 @@ const Pos = ({ pos }) => {
         data-aos-offset="100"
         data-aos-easing="ease-in-sine"
         data-aos-duration="700"
-    className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
+    className=" w-full py-6 text-gray-100 rounded-lg shadow-sm dark:bg-gray-800">
       <Link to={`/post/${_id}`}>
         <div className="flex items-center">
           <img
@@ -35,9 +35,9 @@ const Pos = ({ pos }) => {
             src={authorImage}
             alt="avatar"
           />
-          <h1 className="font-bold text-gray-700 cursor-pointer dark:text-gray-200">
+          <h1 className="font-bold text-gray-200 cursor-pointer dark:text-gray-200">
             {name}
-            <p className=" text-gray-500 text-sm font-normal">
+            <p className=" text-gray-300 text-sm font-normal">
               {" "}
               Posted At: {postedTime}
             </p>
@@ -45,18 +45,18 @@ const Pos = ({ pos }) => {
         </div>
 
         <div className="mt-2">
-          <h1 className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200">
+          <h1 className="text-xl font-bold text-gray-100 dark:text-white hover:text-gray-600 dark:hover:text-gray-200">
             {" "}
             {postTitle}{" "}
           </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-300">
+          <p className="mt-2 text-gray-400 dark:text-gray-300">
             {" "}
             Tags: #{tags}
           </p>
         </div>
 
         <div className="flex items-center justify-between mt-4">
-          <div className=" flex gap-4 bg-slate-100 px-4 py-2 rounded-md">
+          <div className=" flex gap-4 py-2 rounded-md text-gray-100 text-2xl">
             <button className=" flex gap-2 items-center justify-center">
               <BiLike /> <span>{upVote}</span>
             </button>
@@ -71,6 +71,7 @@ const Pos = ({ pos }) => {
           </div>
         </div>
       </Link>
+      <hr className=" mt-4" />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import useAuth from "../hooks/useAuth";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Footer from "../components/Footer/Footer";
 
 const MainLayout = () => {
   useEffect(() => {
@@ -17,15 +18,19 @@ const MainLayout = () => {
   } else
     return (
       <div
-      data-aos="fade-down"
+      className=" bg-[#132c50]"
+        data-aos="fade-down"
         data-aos-offset="100"
         data-aos-easing="ease-in-sine"
         data-aos-duration="1000"
       >
         <NavBar></NavBar>
         <Container>
-          <Outlet></Outlet>
+         <div className=" min-h-screen">
+         <Outlet></Outlet>
+         </div>
         </Container>
+        <Footer></Footer>
       </div>
     );
 };

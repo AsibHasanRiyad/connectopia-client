@@ -25,7 +25,7 @@ const NavBar = () => {
       <li className=" transform hover:scale-125 transition duration-500 ease-out">
         <NavLink
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
           }
           to={"/"}
         >
@@ -35,7 +35,7 @@ const NavBar = () => {
       <li className="transform hover:scale-125 transition duration-500 ease-out">
         <NavLink
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
           }
           to={"/membership"}
         >

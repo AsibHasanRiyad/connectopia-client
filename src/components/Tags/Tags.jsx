@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loader from "../Loader";
 
 const Tags = () => {
   const axiosSecure = useAxiosSecure();
@@ -31,7 +32,7 @@ const Tags = () => {
   //   "#Sports",
   // ];
 if (loading) {
-  return <h1>Loading..........</h1>
+  return <Loader></Loader>
 }
   return (
     <div 
@@ -39,13 +40,13 @@ if (loading) {
     data-aos-offset="100"
     data-aos-easing="ease-in-sine"
     data-aos-duration="1000"
-    className=" col-span-2  bg-[#132c50]  p-4 rounded-md">
-      <h1 className=" text-xl md:text-2xl lg:text-4xl text-gray-200 font-semibold">
-        Use these tags to search post for finding better result
+    className=" col-span-2  bg-[#132c50] rounded-md">
+      <h1 className=" text-xl md:text-2xl lg:text-4xl text-green-500 font-semibold">
+      Optimize searches by tags:
       </h1>
-      <div className=" flex flex-wrap gap-4 mt-4">
+      <div className=" flex flex-wrap gap-4 mt-4 ">
         {tags.map((tag) => (
-          <p className=" text-gray-200" key={tag._id}>#{tag.value}</p>
+          <p className=" bg-[#28589f] px-1 py-0.5 rounded  text-gray-200" key={tag._id}>#{tag.value}</p>
         ))}
       </div>
     </div>

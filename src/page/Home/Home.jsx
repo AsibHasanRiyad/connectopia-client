@@ -22,7 +22,7 @@ const Home = () => {
             <Tags></Tags>
             {announcement?.length > 0 ? (
               <div>
-                <h1 className=" text-3xl font-bold my-6">Announcement:</h1>
+                <h1 className=" text-4xl text-green-500 font-semibold my-6">Announcements:</h1>
                 <AnnouncementPage></AnnouncementPage>
               </div>
             ) : (

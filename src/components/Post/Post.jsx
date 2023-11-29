@@ -90,7 +90,7 @@ const Post = () => {
   return (
     <div className=" col-span-4  mr-0 md:mr-6 lg:mr-10">
       <div className=" flex items-center justify-between mb-4">
-        <h1 className=" font-bold text-2xl md:text-4xl lg:text-6xl">
+        <h1 className=" font-bold text-gray-100 text-2xl md:text-4xl lg:text-6xl">
           {" "}
           News Feed{" "}
         </h1>

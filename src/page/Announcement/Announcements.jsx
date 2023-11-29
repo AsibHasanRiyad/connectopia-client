@@ -8,10 +8,10 @@ const Announcements = ({ announcement }) => {
       data-aos-easing="ease-in-sine"
       data-aos-duration="1000"
     >
-      <div className="flex w-full overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <div className="flex items-center justify-center bg-blue-500">
+      <div className="flex w-full overflow-hidden bg-transparent border border-slate-800 rounded-lg shadow-xl dark:bg-gray-800">
+        <div className="flex items-center justify-center bg-[#28589f]">
           <svg
-            className="w-12 h-12 text-white fill-current"
+            className="w-10 h-10 text-white fill-current"
             viewBox="0 0 40 40"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -26,9 +26,9 @@ const Announcements = ({ announcement }) => {
               src={announcement?.authorImage}
               alt="avatar"
             />
-            <h1 className="font-bold text-gray-700 text-lg cursor-pointer dark:text-gray-200">
+            <h1 className="font-bold text-gray-200 text-lg cursor-pointer dark:text-gray-200">
               {announcement?.name}
-              <p className=" text-gray-500 text-sm font-normal">
+              <p className=" text-gray-100 text-sm font-normal">
                 {" "}
                 Email: {announcement?.email}
               </p>
@@ -39,7 +39,7 @@ const Announcements = ({ announcement }) => {
             <span className="font-semibold text-2xl text-blue-500 dark:text-blue-400">
               {announcement?.title}
             </span>
-            <p className="text-sm text-gray-600 dark:text-gray-200 mt-2 text-justify">
+            <p className="text-sm text-gray-100 dark:text-gray-200 mt-2 text-justify">
               {announcement?.description}
             </p>
           </div>

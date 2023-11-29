@@ -25,12 +25,12 @@ const Banner = () => {
         data-aos-duration="1000"
         className="w-full lg:w-1/2">
           <div className="lg:max-w-lg">
-            <h1 className=" text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white lg:text-5xl">
+            <h1 className=" text-3xl md:text-4xl font-semibold text-gray-100 dark:text-white lg:text-5xl">
               Best place to express <br /> your{" "}
-              <span className="text-blue-500 ">opinion</span>
+              <span className="text-green-500 ">opinion</span>
             </h1>
 
-            <p className="my-4 text-gray-600 dark:text-gray-400 text-base md:text-xl text-justify">
+            <p className="my-4 text-gray-50 dark:text-gray-400 text-base md:text-xl text-justify">
               Connect, Share, Explore: Your Social Universe Awaits! Dive into a
               world of ideas, moments, and conversations. Join us in shaping a
               vibrant community where every voice matters. Welcome to{" "}
@@ -38,7 +38,7 @@ const Banner = () => {
               story unfolds
             </p>
             <Link to={"/dashboard/addPost"}>
-              <Button type={"primary"} title={"Post Your Idea"}></Button>
+              <Button type={"secondary"} title={"Post Your Idea"}></Button>
             </Link>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="flex flex-col w-full ">
-        <h1 className="text-3xl font-extrabold text-center lg:text-5xl 2xl:text-6xl">
+        {/* <h1 className="text-3xl font-extrabold text-center lg:text-5xl 2xl:text-6xl">
           <span className="text-transparent bg-gradient-to-br bg-clip-text from-blue-500 via-indigo-500 to-sky-500 dark:from-teal-200 dark:via-indigo-300 dark:to-sky-500">
             Search
           </span>
@@ -64,7 +64,7 @@ const Banner = () => {
           <span className="text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-pink-500 to-blue-500 dark:from-sky-300 dark:via-pink-300 dark:to-red-500">
             Post
           </span>
-        </h1>
+        </h1> */}
         <div className=" flex justify-center items-center my-6">
           <form onSubmit={handelSearch}>
             <div className=" flex items-start justify-center gap-4">
