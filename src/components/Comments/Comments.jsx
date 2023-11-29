@@ -20,6 +20,7 @@ const Comments = () => {
     setComments(res.data)
   })
  },[axiosSecure, rootPostId])
+//  console.log(comments);
 
     return (
         <div>

@@ -14,7 +14,7 @@ import usePost from "../../../hooks/usePost";
 import useAdmin from "../../../hooks/useAdmin";
 const Sidebar = () => {
   const [post] = usePost();
-  const [isAdmin] = useAdmin()
+  const [isAdmin] = useAdmin();
   // const isAdmin = true
   // console.log('is admin?',isAdmin);
   return (

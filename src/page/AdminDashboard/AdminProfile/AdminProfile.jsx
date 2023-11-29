@@ -68,7 +68,7 @@ const AdminProfile = () => {
   };
 
   return (
-    <div>
+    <div >
       <div className="stats  shadow-md w-full py-10 bg-slate-100">
         <div className="stat">
           <div className="stat-figure text-secondary">
@@ -112,7 +112,7 @@ const AdminProfile = () => {
       </div>
 
       {/* pie chart */}
-      <div className=" flex justify-center items-center">
+      <div  className=" flex justify-center items-center">
         <PieChart width={400} height={400}>
           <Pie
             data={data}

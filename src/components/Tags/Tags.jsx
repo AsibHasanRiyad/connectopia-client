@@ -34,7 +34,12 @@ if (loading) {
   return <h1>Loading..........</h1>
 }
   return (
-    <div className=" col-span-2  bg-[#132c50]  p-4 rounded-md">
+    <div 
+    data-aos="fade-down"
+    data-aos-offset="100"
+    data-aos-easing="ease-in-sine"
+    data-aos-duration="1000"
+    className=" col-span-2  bg-[#132c50]  p-4 rounded-md">
       <h1 className=" text-xl md:text-2xl lg:text-4xl text-gray-200 font-semibold">
         Use these tags to search post for finding better result
       </h1>

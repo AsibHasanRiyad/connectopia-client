@@ -71,7 +71,7 @@ const PaymentForm = () => {
         };
         const res = await axiosSecure.post("/payments", paymentInfo);
         console.log("payment is coming", res.data);
-        if (res.data.result.insertedId) {
+        if (res.data.updateUserStatus.acknowledged === true) {
           Swal.fire({
             title: "Payment Successful!",
             text: "Congratulations, you can now create more than 5 post",

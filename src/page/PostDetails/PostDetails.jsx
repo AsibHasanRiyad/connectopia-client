@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { FaRegCommentAlt, FaRegShareSquare } from "react-icons/fa";
 import { BiDislike, BiLike } from "react-icons/bi";
 import Button from "../../components/Shared/Button";
@@ -8,11 +8,21 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import CommentsOnPost from "../../components/Comments/CommentsOnPost";
 import { useEffect, useState } from "react";
-import { RiEmotionSadLine } from "react-icons/ri";
+import { useQuery } from "@tanstack/react-query";
 
 const PostDetails = () => {
-  const data = useLoaderData();
+  // const data = useLoaderData();
   const axiosSecure = useAxiosSecure();
+  const {id} = useParams()
+
+    // instead of loader data if we use query we can refetch the data so that after adding like or dislike it will update instantly
+    const { data = [], refetch } = useQuery({
+      queryKey: ["id", id],
+      queryFn: async () => {
+        const res = await axiosSecure.get(`/post/${id}`);
+        return res.data;
+      },
+    });
   const {
     _id,
     authorImage,
@@ -24,8 +34,10 @@ const PostDetails = () => {
     postTitle,
     postDescription,
   } = data;
-  console.log(data);
   // console.log(data);
+  // console.log(data);
+
+
 
   const { user } = useAuth();
   console.log(user);
@@ -37,6 +49,7 @@ const PostDetails = () => {
     data.email = user.email;
     data.image = user.photoURL;
     data.name = user.displayName;
+    console.log(data);
     axiosSecure.post("/comments", data).then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
@@ -50,7 +63,7 @@ const PostDetails = () => {
   };
 
   const [comments, setComments] = useState([]);
-  const { id } = useParams();
+  // const { id } = useParams();
   console.log(id);
   const rootPostId = id;
 
@@ -61,8 +74,9 @@ const PostDetails = () => {
     });
   }, [axiosSecure, rootPostId]);
 
-  console.log(comments.length);
+  // console.log(comments.length);
 
+  
   //handel UpVote
   const handelUpVote = () => {
     axiosSecure.patch(`/post/upvote/${_id}`).then((res) => {
@@ -73,6 +87,7 @@ const PostDetails = () => {
           text: "Thanks for your contribution",
           icon: "success",
         });
+        refetch()
       }
     });
   };
@@ -87,6 +102,7 @@ const PostDetails = () => {
           text: "Thanks for your feedback",
           icon: "success",
         });
+        refetch()
       }
     });
   };
@@ -121,27 +137,27 @@ const PostDetails = () => {
       </div>
 
       <div className="flex items-center justify-between mt-4">
-        <div className=" flex gap-4 bg-gray-100 px-4 py-2 rounded">
+        <div className=" flex gap-4  px-4 py-2 rounded text-2xl">
           <button
             onClick={handelUpVote}
             className=" flex gap-2 items-center justify-center"
           >
-            <BiLike /> <span>{upVote}</span>
+            <BiLike className="transform hover:scale-150 transition duration-500 ease-out text-blue-600" /> <span>{upVote}</span>
           </button>
           |
           <button
             onClick={handelDownVote}
             className=" flex gap-2 items-center justify-center"
           >
-            <BiDislike /> <span>{downVote}</span>
+            <BiDislike className="transform hover:scale-150 transition duration-500 ease-out text-red-600"/> <span>{downVote}</span>
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
-            <FaRegCommentAlt></FaRegCommentAlt> <span>{comments.length}</span>
+            <FaRegCommentAlt className="transform hover:scale-150 transition duration-500 ease-out"></FaRegCommentAlt> <span>{comments.length}</span>
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
-            <FaRegShareSquare />
+            <FaRegShareSquare className="transform hover:scale-150 transition duration-500 ease-out"/>
           </button>
         </div>
       </div>

@@ -22,7 +22,12 @@ const Pos = ({ pos }) => {
     })
    },[axiosSecure, rootPostId]) 
   return (
-    <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
+    <div
+    data-aos="fade-down"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="700"
+    className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
       <Link to={`/post/${_id}`}>
         <div className="flex items-center">
           <img

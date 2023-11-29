@@ -5,20 +5,25 @@ import { SearchContext } from "../../provider/searchProvider";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
-    const {getSearchValue} = useContext(SearchContext)
-    const handelSearch = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const input = form.input.value;
-        // console.log(input);
-        const lowercase = input.toLowerCase()
-        console.log(lowercase);
-        getSearchValue(lowercase);
-      };
+  const { getSearchValue } = useContext(SearchContext);
+  const handelSearch = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.input.value;
+    // console.log(input);
+    const lowercase = input.toLowerCase();
+    console.log(lowercase);
+    getSearchValue(lowercase);
+  };
   return (
     <div className="container py-8 md:py-16 mx-auto">
       <div className="items-center lg:flex">
-        <div className="w-full lg:w-1/2">
+        <div
+        data-aos="zoom-in-left"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1000"
+        className="w-full lg:w-1/2">
           <div className="lg:max-w-lg">
             <h1 className=" text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white lg:text-5xl">
               Best place to express <br /> your{" "}
@@ -32,14 +37,18 @@ const Banner = () => {
               <span className="text-blue-500 ">Connectopia</span> where your
               story unfolds
             </p>
-            <Link to={'/dashboard/addPost'}>
-            <Button type={"primary"} title={"Post Your Idea"}></Button>
+            <Link to={"/dashboard/addPost"}>
+              <Button type={"primary"} title={"Post Your Idea"}></Button>
             </Link>
           </div>
         </div>
 
         <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
           <img
+            data-aos="zoom-in-right"
+            data-aos-offset="100"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000"
             className="w-full h-full lg:max-w-3xl"
             src={bannerImage}
             alt="Catalogue-pana.svg"
@@ -57,17 +66,17 @@ const Banner = () => {
           </span>
         </h1>
         <div className=" flex justify-center items-center my-6">
-        <form onSubmit={handelSearch}>
-          <div className=" flex items-start justify-center gap-4">
-          <input
-            className=" bg-gray-200 p-4 mb-3 w-[60vw] rounded-md "
-            type="text"
-            name="input"
-            placeholder="Search......."
-          />
-          <Button type={'secondary'} title={'Search'} ></Button>
-          </div>
-        </form>
+          <form onSubmit={handelSearch}>
+            <div className=" flex items-start justify-center gap-4">
+              <input
+                className=" bg-gray-200 p-4 mb-3 w-[60vw] rounded-md "
+                type="text"
+                name="input"
+                placeholder="Search......."
+              />
+              <Button type={"secondary"} title={"Search"}></Button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -73,13 +73,13 @@ const NavBar = () => {
                 {navItems}
               </ul>
             </div>
-            <a>
+            <Link to={'/'}>
               <img
                 className=" w-64 hidden md:block"
                 src="https://i.ibb.co/HN6b2g6/connectopia-high-resolution-logo-transparent.png"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="flex gap-5 text-[#F9FAFF]">{navItems}</ul>
