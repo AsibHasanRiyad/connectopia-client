@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import bannerImage from "../../assets/5267.jpg";
 import Button from "../Shared/Button";
 import { SearchContext } from "../../provider/searchProvider";
 import { Link } from "react-router-dom";
@@ -49,8 +48,8 @@ const Banner = () => {
             data-aos-offset="100"
             data-aos-easing="ease-in-sine"
             data-aos-duration="1000"
-            className="w-full h-full lg:max-w-3xl"
-            src={bannerImage}
+            className="w-3/4 h-full lg:max-w-3xl"
+            src='https://i.ibb.co/bvB2LyH/Pngtree-people-characters-work-near-a-7516385-1.png'
             alt="Catalogue-pana.svg"
           />
         </div>
@@ -65,7 +64,7 @@ const Banner = () => {
             Post
           </span>
         </h1> */}
-        <div className=" flex justify-center items-center my-6">
+        <div className=" flex justify-center items-center mt-10 md:mt-16 lg:mt-24">
           <form onSubmit={handelSearch}>
             <div className=" flex items-start justify-center gap-4">
               <input

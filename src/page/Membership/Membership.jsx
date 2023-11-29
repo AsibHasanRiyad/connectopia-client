@@ -13,9 +13,9 @@ const Membership = () => {
       data-aos-easing="ease-in-sine"
       data-aos-duration="1000"
     >
-      <h1 className=" text-xl md:text-3xl lg:text-5xl text-center mt-10 mb-16 font-semibold">
+      <h1 className=" text-xl text-gray-100 md:text-3xl lg:text-5xl text-center mt-10 mb-16 font-semibold">
         Please complete payment (10$) to <br /> become a{" "}
-        <span className=" text-blue-500">Gold Member</span>{" "}
+        <span className=" text-green-500">Gold Member</span>{" "}
       </h1>
 
       {/* payment */}

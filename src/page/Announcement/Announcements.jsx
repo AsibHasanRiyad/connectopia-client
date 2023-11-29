@@ -9,7 +9,7 @@ const Announcements = ({ announcement }) => {
       data-aos-duration="1000"
     >
       <div className="flex w-full overflow-hidden bg-transparent border border-slate-800 rounded-lg shadow-xl dark:bg-gray-800">
-        <div className="flex items-center justify-center bg-[#28589f]">
+        <div className="flex items-center justify-center bg-green-500">
           <svg
             className="w-10 h-10 text-white fill-current"
             viewBox="0 0 40 40"
@@ -19,7 +19,7 @@ const Announcements = ({ announcement }) => {
           </svg>
         </div>
 
-        <div className="px-4 py-2 -mx-3">
+        <div className=" px-4 py-2 -mx-3">
           <div className="flex mx-3 items-center">
             <img
               className="hidden object-cover w-10 h-10 mr-4 rounded-full sm:block"

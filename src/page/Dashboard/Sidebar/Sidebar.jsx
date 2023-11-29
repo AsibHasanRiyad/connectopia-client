@@ -23,7 +23,7 @@ const Sidebar = () => {
       <div className="drawer-content absolute flex flex-col items-center justify-center">
         {/* Page content here */}
         <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden m-4">
-          <IoMdMenu className=" text-4xl text-black" />
+          <IoMdMenu className=" text-4xl text-white" />
         </label>
       </div>
       <div className="drawer-side">
@@ -32,7 +32,7 @@ const Sidebar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu space-y-4 text-center text-xl p-4 w-60 min-h-full bg-[#132c50]  text-white">
+        <ul className="menu space-y-4 text-center text-xl p-4 w-60 min-h-full bg-slate-900  text-white">
           {/* Sidebar content here */}
 
           {isAdmin ? (

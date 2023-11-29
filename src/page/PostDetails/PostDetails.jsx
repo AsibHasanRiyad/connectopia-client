@@ -107,57 +107,57 @@ const PostDetails = () => {
     });
   };
   return (
-    <div className=" w-full py-6 bg-white rounded-lg shadow-sm dark:bg-gray-800">
+    <div className=" w-full py-6 bg-transparent  rounded-lg shadow-sm dark:bg-gray-800">
       <div className="flex items-center">
         <img
           className="hidden object-cover w-10 h-10 mr-4 rounded-full sm:block"
           src={authorImage}
           alt="avatar"
         />
-        <h1 className="font-bold text-gray-700 cursor-pointer dark:text-gray-200">
+        <h1 className="font-bold text-gray-100 cursor-pointer dark:text-gray-200">
           {name}
-          <p className=" text-gray-500 text-sm font-normal">
+          <p className=" text-gray-300 text-sm font-normal">
             {" "}
             Posted At: {postedTime}
           </p>
         </h1>
       </div>
-
+    <hr  className=" mt-2"/>
       <div className="mt-4">
-        <h1 className="text-4xl my-5 font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200">
+        <h1 className="text-4xl my-3 font-bold text-gray-200 dark:text-white  dark:hover:text-gray-200">
           {" "}
           {postTitle}{" "}
         </h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-300"> Tags: #{tags}</p>
-        <p className="mt-2 text-gray-600 dark:text-gray-300 text-xl">
+        <p className="mt-2 text-gray-200 dark:text-gray-300"> Tags: #{tags}</p>
+        <p className="mt-2 text-gray-200 dark:text-gray-300 text-xl">
           {" "}
-          <span className=" font-bold">Post Description: </span>{" "}
+          <span className=" text-gray-200 font-bold">Post Description: </span>{" "}
           {postDescription}
         </p>
       </div>
 
       <div className="flex items-center justify-between mt-4">
-        <div className=" flex gap-4  px-4 py-2 rounded text-2xl">
+        <div className=" flex gap-4 text-gray-100  px-4 py-2 rounded text-2xl">
           <button
             onClick={handelUpVote}
             className=" flex gap-2 items-center justify-center"
           >
-            <BiLike className="transform hover:scale-150 transition duration-500 ease-out text-blue-600" /> <span>{upVote}</span>
+            <BiLike className="transform hover:scale-150 transition duration-500 ease-out text-gray-100" /> <span>{upVote}</span>
           </button>
           |
           <button
             onClick={handelDownVote}
             className=" flex gap-2 items-center justify-center"
           >
-            <BiDislike className="transform hover:scale-150 transition duration-500 ease-out text-red-600"/> <span>{downVote}</span>
+            <BiDislike className="transform hover:scale-150 transition duration-500 ease-out text-gray-100"/> <span>{downVote}</span>
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
-            <FaRegCommentAlt className="transform hover:scale-150 transition duration-500 ease-out"></FaRegCommentAlt> <span>{comments.length}</span>
+            <FaRegCommentAlt className=" text-gray-100 transform hover:scale-150 transition duration-500 ease-out"></FaRegCommentAlt> <span>{comments.length}</span>
           </button>
           |
           <button className=" flex gap-2 items-center justify-center">
-            <FaRegShareSquare className="transform hover:scale-150 transition duration-500 ease-out"/>
+            <FaRegShareSquare className=" text-gray-100 transform hover:scale-150 transition duration-500 ease-out"/>
           </button>
         </div>
       </div>
@@ -165,7 +165,7 @@ const PostDetails = () => {
       {/* comment section */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          className="textarea textarea-bordered w-full h-52 my-6"
+          className="textarea bg-transparent border border-white textarea-bordered w-full h-52 my-6"
           placeholder="Write your comment here......"
           {...register("comment", { required: true })}
         />

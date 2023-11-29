@@ -44,9 +44,9 @@ if (loading) {
       <h1 className=" text-xl md:text-2xl lg:text-4xl text-green-500 font-semibold">
       Optimize searches by tags:
       </h1>
-      <div className=" flex flex-wrap gap-4 mt-4 ">
+      <div className=" border border-green-500 rounded-md  p-6 shadow-md shadow-green-900 flex flex-wrap gap-4 mt-4 ">
         {tags.map((tag) => (
-          <p className=" bg-[#28589f] px-1 py-0.5 rounded  text-gray-200" key={tag._id}>#{tag.value}</p>
+          <p className=" text-gray-200" key={tag._id}>#{tag.value}</p>
         ))}
       </div>
     </div>

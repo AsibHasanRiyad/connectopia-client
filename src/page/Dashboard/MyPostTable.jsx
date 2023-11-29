@@ -43,7 +43,7 @@ const MyPostTable = ({ post }) => {
         <td>{downVote}</td>
         <td>
           <Link to={`/comments/${_id}`}>
-            <button className="btn btn-circle btn-md btn-outline hover:bg-[#132c50]">
+            <button className="btn btn-circle text-white btn-md text-xl btn-outline hover:bg-green-500">
               <FaComment></FaComment>
             </button>
           </Link>
@@ -51,7 +51,7 @@ const MyPostTable = ({ post }) => {
         <td>
           <button
             onClick={() => handelDelete(_id)}
-            className="btn btn-circle btn-md btn-outline hover:bg-[#132c50]"
+            className="btn btn-circle text-white btn-md text-xl btn-outline hover:bg-green-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

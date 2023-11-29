@@ -82,7 +82,7 @@ const PaymentForm = () => {
     }
   };
   return (
-    <div className="  p-10 rounded-md bg-slate-200 text-white">
+    <div className="  p-10 rounded-md bg-transparent border border-white text-white">
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
@@ -102,7 +102,7 @@ const PaymentForm = () => {
         />
         <div className=" flex items-center justify-center">
           <button
-            className=" btn btn-primary bg-[#132c50] text-2xl text-white mt-6 w-1/4"
+            className=" btn btn-primary bg-green-500 border-none text-2xl text-white mt-6 w-1/4"
             type="submit"
             disabled={!stripe || !clientSecret}
           >

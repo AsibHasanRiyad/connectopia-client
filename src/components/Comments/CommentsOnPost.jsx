@@ -16,13 +16,13 @@ const CommentsOnPost = () => {
     });
   }, [axiosSecure, rootPostId]);
   return (
-    <div>
+    <div className=" text-gray-100 ">
       {comments.map((com) => (
         <div className=" my-6" key={com._id}>
-            <hr />
-          <div className=" my-5">
+          <div className=" bg-[#0f233e] p-6 rounded-md my-5">
+            <div className=" flex  items-center gap-3 mb-5">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask mask-circle w-12 h-12">
                 <img src={com.image} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
@@ -30,8 +30,9 @@ const CommentsOnPost = () => {
               <div className="font-bold">{com.name}</div>
               <div className="text-sm opacity-50 w-44">{com.postedTime}</div>
             </div>
+            </div>
             <div>
-                <p>{com.comment}</p>
+              <p>{com.comment}</p>
             </div>
           </div>
         </div>
