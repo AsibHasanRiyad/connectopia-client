@@ -118,9 +118,9 @@ const PaymentForm = () => {
           <div className=" py-4 text-green-500 text-center">
             <h1 className=" text-3xl ">Payment Successful</h1>
             <br />
-            <h1 className=" text-gray-600">
+            <h1 className=" text-gray-100">
               {" "}
-              <span className=" font-bold text-gray-800">
+              <span className=" font-bold text-gray-300">
                 Your Transaction Id:{" "}
               </span>{" "}
               {transactionId}

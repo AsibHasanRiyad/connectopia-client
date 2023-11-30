@@ -110,7 +110,7 @@ const AddPost = () => {
             </h1>
             <div className=" flex justify-center items-center my-6">
               <Link to={"/membership"}>
-                <Button title={"Become A Member"} type={"primary"}></Button>
+                <Button title={"Become A Member"} type={"danger"}></Button>
               </Link>
             </div>
           </div>
