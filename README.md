@@ -2,7 +2,7 @@
 # Connectopia
 
 
-![connectopia-high-resolution-logo-transparent](https://github.com/AsibHasanRiyad/gadget-junction-client/assets/137589900/67540c1d-663d-4ef4-b723-0c9024fc8e86)
+![connectopia-high-resolution-logo-transparent](https://github.com/AsibHasanRiyad/car-doctor-client/assets/137589900/c203e2c9-a353-4d11-abba-a385826a9b91)
 
 
 # Live Link
