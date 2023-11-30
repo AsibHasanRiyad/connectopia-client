@@ -10,7 +10,7 @@ const MyPostTable = ({ post }) => {
   const axiosSecure = useAxiosSecure();
   const [, refetch] = usePost();
   const handelDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -22,7 +22,7 @@ const MyPostTable = ({ post }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`post/${id}`).then((res) => {
-          console.log(res);
+          // console.log(res);
           refetch();
 
           if (res.status === 200) {

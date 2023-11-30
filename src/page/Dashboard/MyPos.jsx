@@ -2,7 +2,7 @@
 import { BiDislike, BiLike } from "react-icons/bi";
 
 const MyPos = ({ pos }) => {
-  console.log(pos);
+  // console.log(pos);
   const {
     authorImage,
     name,
@@ -13,14 +13,14 @@ const MyPos = ({ pos }) => {
     postTitle,
   } = pos;
   return (
-    <div className=" w-full px-8 py-6 bg-transparent rounded-lg shadow-sm dark:bg-gray-800">
+    <div className=" w-full px-8 py-6 bg-transparent rounded-lg shadow-sm   ">
       <div className="flex items-center">
         <img
           className="hidden object-cover w-10 h-10 mr-4 rounded-full sm:block"
           src={authorImage}
           alt="avatar"
         />
-        <h1 className="font-bold text-gray-100 cursor-pointer dark:text-gray-200">
+        <h1 className="font-bold text-gray-100 cursor-pointer  ">
           {name}
           <p className=" text-gray-300 text-sm font-normal"> Email: {email}</p>
         </h1>
@@ -34,7 +34,7 @@ const MyPos = ({ pos }) => {
           {" "}
           {postTitle}{" "}
         </h1>
-        <p className="mt-2 text-gray-100 dark:text-gray-300">
+        <p className="mt-2 text-gray-100   ">
           {" "}
           {postDescription}{" "}
         </p>

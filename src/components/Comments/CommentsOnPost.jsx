@@ -6,12 +6,12 @@ const CommentsOnPost = () => {
   const axiosSecure = useAxiosSecure();
   const [comments, setComments] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const rootPostId = id;
 
   useEffect(() => {
     axiosSecure.get(`/comments?rootPostId=${rootPostId}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setComments(res.data);
     });
   }, [axiosSecure, rootPostId]);

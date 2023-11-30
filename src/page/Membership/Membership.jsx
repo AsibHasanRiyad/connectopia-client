@@ -10,7 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 
 const Membership = () => {
   const [status] = useStatus();
-  console.log(status);
+  // console.log(status);
   return (
     <div>
       {status === "Gold" ? (
@@ -24,7 +24,7 @@ const Membership = () => {
                     <span className="text-green-500 ">Gold Member</span>
                   </h1>
 
-                  <p className="my-3 text-xl text-gray-200 dark:text-gray-400">
+                  <p className="my-3 text-xl text-gray-200   ">
                     You can now post more than 5 post .Tell your friends about
                     this.
                   </p>

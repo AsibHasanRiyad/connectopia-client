@@ -11,7 +11,7 @@ const Banner = () => {
     const input = form.input.value;
     // console.log(input);
     const lowercase = input.toLowerCase();
-    console.log(lowercase);
+    // console.log(lowercase);
     getSearchValue(lowercase);
   };
   return (
@@ -29,7 +29,7 @@ const Banner = () => {
               <span className="text-green-500 ">opinion</span>
             </h1>
 
-            <p className="my-4 text-gray-50 dark:text-gray-400 text-base md:text-xl text-justify">
+            <p className="my-4 text-gray-50    text-base md:text-xl text-justify">
               Connect, Share, Explore: Your Social Universe Awaits! Dive into a
               world of ideas, moments, and conversations. Join us in shaping a
               vibrant community where every voice matters. Welcome to{" "}

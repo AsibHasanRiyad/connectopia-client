@@ -9,7 +9,7 @@ const AddTags = () => {
   const onSubmit = (data) => {
     data.label = data.value;
     data.value = data.value.toLowerCase()
-    console.log(data);
+    // console.log(data);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -21,7 +21,7 @@ const AddTags = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.post("/tags", data).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.status === 200) {
             Swal.fire({
               title: "Added!",
@@ -45,7 +45,7 @@ const AddTags = () => {
             type="text"
             placeholder="Enter tag........"
             {...register("value", { required: true })}
-            className="block w-full px-4 py-2 my-4 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+            className="block w-full px-4 py-2 my-4 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
           />
         </div>
         <Button type={"secondary"} title={"Add"}></Button>

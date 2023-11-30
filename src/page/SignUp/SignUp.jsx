@@ -23,14 +23,14 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     setError("");
     const toastId = toast.loading("Logging In....");
-    console.log(data);
+    // console.log(data);
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log(res.data.data.display_url);
+    // console.log(res.data.data.display_url);
     const imageUrl = res.data.data.display_url;
     // console.log(imageUrl);
     const userInfo = {
@@ -45,7 +45,7 @@ const SignUp = () => {
       .then((res) => {
         axiosPublic.post("/users", userInfo);
         toast.success("Logged In...", { id: toastId });
-        console.log(res);
+        // console.log(res);
         updateProfile(res.user, {
           displayName: data?.name,
           photoURL: imageUrl ? imageUrl : res?.photoURL,
@@ -63,7 +63,7 @@ const SignUp = () => {
     googleSignIn()
       .then((result) => {
         toast.success("Logged In...", { id: toastId });
-        console.log(result.user.displayName);
+        // console.log(result.user.displayName);
         updateProfile(result.user, {
           displayName: result?.user?.name,
           photoURL: result?.user?.photoURL,
@@ -79,7 +79,7 @@ const SignUp = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(error.message);
         toast.success(error.message, { id: toastId });
       });
@@ -189,11 +189,11 @@ const SignUp = () => {
           </div>
         </form>
         <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
+          <div className="flex-1 h-px sm:w-16   "></div>
+          <p className="px-3 text-sm   ">
             Signup with social accounts
           </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+          <div className="flex-1 h-px sm:w-16   "></div>
         </div>
         <div
           onClick={handelGoogleSignIn}

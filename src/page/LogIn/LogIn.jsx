@@ -19,7 +19,7 @@ const LogIn = () => {
   const onSubmit = async (data) => {
     const toastId = toast.loading("Logging In....");
     setError("");
-    console.log(data);
+    // console.log(data);
     singIn(data.email, data.password)
       .then((result) => {
         toast.success('Logged In...', {id: toastId});
@@ -117,11 +117,11 @@ const LogIn = () => {
           </div>
         </form>
         <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
+          <div className="flex-1 h-px sm:w-16   "></div>
+          <p className="px-3 text-sm   ">
             Signup with social accounts
           </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+          <div className="flex-1 h-px sm:w-16   "></div>
         </div>
         <div
           onClick={handelGoogleSignIn}

@@ -27,7 +27,7 @@ const Pos = ({ pos }) => {
         data-aos-offset="100"
         data-aos-easing="ease-in-sine"
         data-aos-duration="700"
-    className=" w-full py-6 text-gray-100 rounded-lg shadow-sm dark:bg-gray-800">
+    className=" w-full py-6 text-gray-100 rounded-lg shadow-sm">
       <Link to={`/post/${_id}`}>
         <div className="flex items-center">
           <img
@@ -35,7 +35,7 @@ const Pos = ({ pos }) => {
             src={authorImage}
             alt="avatar"
           />
-          <h1 className="font-bold text-gray-200 cursor-pointer dark:text-gray-200">
+          <h1 className="font-bold text-gray-200 cursor-pointer ">
             {name}
             <p className=" text-gray-300 text-sm font-normal">
               {" "}
@@ -49,7 +49,7 @@ const Pos = ({ pos }) => {
             {" "}
             {postTitle}{" "}
           </h1>
-          <p className="mt-2 text-gray-400 dark:text-gray-300">
+          <p className="mt-2 text-gray-400   ">
             {" "}
             Tags: #{tags}
           </p>

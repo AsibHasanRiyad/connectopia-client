@@ -3,89 +3,124 @@ import Container from "../Container";
 import Button from "../Shared/Button";
 import "./NavBar.css";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import useAuth from "../../hooks/useAuth";  
+import useAuth from "../../hooks/useAuth";
 import useAnnouncement from "../../hooks/useAnnouncement";
 import useAdmin from "../../hooks/useAdmin";
+import { useState } from "react";
 
 const NavBar = () => {
+  const [navBar, setNavBar] = useState(false);
   const { user, logOut } = useAuth();
   const handelLogout = () => {
     logOut().then((res) => {
       console.log(res);
     });
   };
- 
+
+  const changeBackground = () => {
+    // console.log(window.scrollY);
+    if (window.scrollY >= 90) {
+      setNavBar(true);
+    } else {
+      setNavBar(false);
+    }
+  };
+  window.addEventListener("scroll", changeBackground);
+
   //announcement count
   const [announcement] = useAnnouncement();
   // console.log(announcement);
-  const [isAdmin] = useAdmin()
+  const [isAdmin] = useAdmin();
 
   const navItems = (
     <>
-
-    {
-      isAdmin ? 
-      <>
-      <li className=" transform hover:scale-125 transition duration-500 ease-out">
-      <NavLink
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-        }
-        to={"/"}
-      >
-        Home
-      </NavLink>
-    </li> 
-      <li className=" transform hover:scale-125 transition duration-500 ease-out">
-      <NavLink
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-        }
-        to={"/dashboard/manageUser"}
-      >
-        Manage User
-      </NavLink>
-    </li> 
-      <li className=" transform hover:scale-125 transition duration-500 ease-out">
-      <NavLink
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-        }
-        to={"/dashboard/announcement"}
-      >
-        Make Announcement
-      </NavLink>
-    </li> 
-      
-       </>
-      :
-    <>
-    <li className=" transform hover:scale-125 transition duration-500 ease-out">
-    <NavLink
-      className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-      }
-      to={"/"}
-    >
-      Home
-    </NavLink>
-  </li>
-        <li className="transform hover:scale-125 transition duration-500 ease-out">
-        <NavLink
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-          }
-          to={"/membership"}
-        >
-          Membership
-        </NavLink>
-      </li>
-      </>
-    }
+      {isAdmin ? (
+        <>
+          <li className=" transform hover:scale-125 transition duration-500 ease-out">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded"
+                  : ""
+              }
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className=" transform hover:scale-125 transition duration-500 ease-out">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded"
+                  : ""
+              }
+              to={"/dashboard/manageUser"}
+            >
+              Manage User
+            </NavLink>
+          </li>
+          <li className=" transform hover:scale-125 transition duration-500 ease-out">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded"
+                  : ""
+              }
+              to={"/dashboard/announcement"}
+            >
+              Make Announcement
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className=" transform hover:scale-125 transition duration-500 ease-out">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded"
+                  : ""
+              }
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="transform hover:scale-125 transition duration-500 ease-out">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded"
+                  : ""
+              }
+              to={"/membership"}
+            >
+              Membership
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
-    <div className=" bg-[#132c50] w-full">
+    <div
+      className={
+        navBar
+          ? "bg-[#1a365d] z-10 w-full sticky top-0 transform"
+          : "bg-[#132c50] w-full sticky top-0 transition duration-500"
+      }
+    >
       <Container>
         <div className="navbar">
           <div className="navbar-start">
@@ -113,7 +148,7 @@ const NavBar = () => {
                 {navItems}
               </ul>
             </div>
-            <Link to={'/'}>
+            <Link to={"/"}>
               <img
                 className=" w-64 hidden md:block"
                 src="https://i.ibb.co/HN6b2g6/connectopia-high-resolution-logo-transparent.png"
@@ -126,7 +161,7 @@ const NavBar = () => {
           </div>
           <div className="navbar-end">
             <div className=" mx-6">
-              <Link to={'/announcement'}>
+              <Link to={"/announcement"}>
                 <button className="btn btn-ghost btn-circle">
                   <div className="indicator">
                     <IoMdNotificationsOutline className=" text-4xl text-white" />
@@ -158,12 +193,15 @@ const NavBar = () => {
                     </h1>
                   </li>
                   <li>
-                    {isAdmin ? <Link to={"dashboard/adminProfile"}>
-                      <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
-                    </Link> :
-                    <Link to={"dashboard/myProfile"}>
-                    <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
-                  </Link>}
+                    {isAdmin ? (
+                      <Link to={"dashboard/adminProfile"}>
+                        <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
+                      </Link>
+                    ) : (
+                      <Link to={"dashboard/myProfile"}>
+                        <h1 className=" text-[#1371ff] text-xl">Dashboard</h1>
+                      </Link>
+                    )}
                   </li>
                   <li>
                     <button

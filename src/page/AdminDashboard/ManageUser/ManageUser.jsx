@@ -15,10 +15,10 @@ const ManageUser = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5001/usersCount")
+    fetch("https://connectopia-server.vercel.app/usersCount")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.count);
+        // console.log(data.count);
         setTotalUser(data.count);
       });
   }, []);
@@ -45,7 +45,7 @@ const ManageUser = () => {
   console.log(users);
   return (
     <div>
-      <div className="overflow-x-auto max-w-xs md:max-w-xl lg:max-w-full">
+      <div className="overflow-x-auto max-w-sm md:max-w-xl lg:max-w-full">
         <table className="table">
           <thead>
             <tr className=" text-green-500 text-lg">
@@ -63,7 +63,7 @@ const ManageUser = () => {
           </tbody>
         </table>
       </div>
-      <div className=" flex justify-center items-center my-6">
+      <div className=" flex flex-wrap gap-2 justify-center items-center my-6">
         {pages.map((page) => (
           <button
             onClick={() => setCurrentPage(page)}

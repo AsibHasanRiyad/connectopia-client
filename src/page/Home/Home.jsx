@@ -27,7 +27,7 @@ const Home = () => {
               </div>
             ) : (
               <div>
-                <div className="flex w-full overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 my-6">
+                <div className="flex w-full overflow-hidden bg-white rounded-lg shadow-md    my-6">
                   <div className="flex items-center justify-center w-12 bg-red-500">
                     <svg
                       className="w-6 h-6 text-white fill-current"
@@ -43,7 +43,7 @@ const Home = () => {
                       <span className="font-semibold text-3xl text-red-500 dark:text-red-400">
                         Announcement!
                       </span>
-                      <p className="text-sm text-gray-600 mt-3 dark:text-gray-200">
+                      <p className="text-sm text-gray-600 mt-3  ">
                         No announcement is available
                       </p>
                     </div>

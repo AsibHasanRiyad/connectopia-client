@@ -3,7 +3,7 @@ import Button from "../Shared/Button";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#132c50] dark:bg-gray-900">
+    <footer className="bg-[#132c50]   ">
       <div className="container px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
           <div className="sm:col-span-2">
@@ -15,7 +15,7 @@ const Footer = () => {
               <input
                 id="email"
                 type="text"
-                className="px-4 mr-4 text-gray-50 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+                className="px-4 mr-4 text-gray-50 bg-white border rounded-md       dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                 placeholder="Email Address"
               />
 
@@ -31,19 +31,19 @@ const Footer = () => {
             <div className="flex flex-col items-start mt-5 space-y-2">
               <Link
               to={'/'}
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 Home
               </Link>
               <Link 
                 to={'/dashboard/addPost'}
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 Add Post
               </Link>
               <Link
                 to={'/dashboard/myProfile'}
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 My Profile
               </Link>
@@ -57,17 +57,17 @@ const Footer = () => {
 
             <div className="flex flex-col items-start mt-5 space-y-2">
               <a
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 Retail & E-Commerce
               </a>
               <a
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 Information Technology
               </a>
               <a
-                className="text-gray-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                className="text-gray-200 transition-colors duration-300    dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
                 Finance & Insurance
               </a>
@@ -89,7 +89,7 @@ const Footer = () => {
           <div className="flex -mx-2">
             <a
               href="#"
-              className="mx-2 text-gray-200 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+              className="mx-2 text-gray-200 transition-colors duration-300    hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
               <svg
@@ -104,7 +104,7 @@ const Footer = () => {
 
             <a
               href="#"
-              className="mx-2 text-gray-200 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+              className="mx-2 text-gray-200 transition-colors duration-300    hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Facebook"
             >
               <svg
@@ -119,7 +119,7 @@ const Footer = () => {
 
             <a
               href="#"
-              className="mx-2 text-gray-200 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+              className="mx-2 text-gray-200 transition-colors duration-300    hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Github"
             >
               <svg

@@ -54,11 +54,11 @@ const PaymentForm = () => {
         },
       });
     if (confirmError) {
-      console.log(confirmError);
+      // console.log(confirmError);
     } else {
-      console.log("payment intent", paymentIntent);
+      // console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
+        // console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
         //save payment info and change user status

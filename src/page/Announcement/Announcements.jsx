@@ -8,7 +8,7 @@ const Announcements = ({ announcement }) => {
       data-aos-easing="ease-in-sine"
       data-aos-duration="1000"
     >
-      <div className="flex w-full overflow-hidden bg-transparent border border-slate-800 rounded-lg shadow-xl dark:bg-gray-800">
+      <div className="flex w-full overflow-hidden bg-transparent border border-slate-800 rounded-lg shadow-xl   ">
         <div className="flex items-center justify-center bg-green-500">
           <svg
             className="w-10 h-10 text-white fill-current"
@@ -26,7 +26,7 @@ const Announcements = ({ announcement }) => {
               src={announcement?.authorImage}
               alt="avatar"
             />
-            <h1 className="font-bold text-gray-200 text-lg cursor-pointer dark:text-gray-200">
+            <h1 className="font-bold text-gray-200 text-lg cursor-pointer  ">
               {announcement?.name}
               <p className=" text-gray-100 text-sm font-normal">
                 {" "}
@@ -39,7 +39,7 @@ const Announcements = ({ announcement }) => {
             <span className="font-semibold text-2xl text-blue-500 dark:text-blue-400">
               {announcement?.title}
             </span>
-            <p className="text-sm text-gray-100 dark:text-gray-200 mt-2 text-justify">
+            <p className="text-sm text-gray-100   mt-2 text-justify">
               {announcement?.description}
             </p>
           </div>

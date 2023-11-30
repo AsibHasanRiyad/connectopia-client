@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         path: "/post/:id",
         element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/post/${params.id}`),
+          fetch(`https://connectopia-server.vercel.app/post/${params.id}`),
       },
       {
         path: "/announcement",

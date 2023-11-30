@@ -17,14 +17,14 @@ const MyPost = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5001/myPostCount?email=${user?.email}`)
+    fetch(`https://connectopia-server.vercel.app/myPostCount?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.count);
+        // console.log(data.count);
         setTotalPost(data.count);
       });
   }, [user?.email]);
-  console.log(totalPost);
+  // console.log(totalPost);
   const postPerPage = 5;
   const numberOfPage = Math.ceil(totalPost / postPerPage);
   // console.log(numberOfPage);
@@ -46,7 +46,7 @@ const MyPost = () => {
   return (
     <div className=" col-span-4 order-2 md:order-1">
       <h1 className=" text-6xl text-gray-100 font-semibold my-6"> My Post </h1>
-      <div className="overflow-x-auto max-w-xs md:max-w-xl lg:max-w-full">
+      <div className="overflow-x-auto max-w-sm md:max-w-xl lg:max-w-full">
         <table className="table text-gray-100">
           <thead>
             <tr className=" text-green-500">
@@ -64,7 +64,7 @@ const MyPost = () => {
           </tbody>
         </table>
       </div>
-      <div className=" flex justify-center items-center my-6">
+      <div className=" flex flex-wrap gap-2 justify-center items-center my-6">
         {pages.map((page) => (
           <button
             onClick={() => setCurrentPage(page)}
