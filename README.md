@@ -1,8 +1,8 @@
 
-# Gadget Junction
+# Connectopia
 
 
-![Logo](https://i.ibb.co/sR9dBzj/gj-Favicon.png)
+![connectopia-high-resolution-logo-transparent](https://github.com/AsibHasanRiyad/gadget-junction-client/assets/137589900/67540c1d-663d-4ef4-b723-0c9024fc8e86)
 
 
 # Live Link
