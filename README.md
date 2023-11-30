@@ -1,8 +1,29 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Gadget Junction
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Logo](https://i.ibb.co/sR9dBzj/gj-Favicon.png)
+
+
+# Live Link
+
+https://connectopia-9e807.web.app/
+
+
+# Features
+
+- Connectopis is an Online forum
+- This Project has login logout functionality with firebase
+- This site has Admin and user role.Admin have some functionality that is not accassble by normal user
+- User can see their name, profile picture after login
+- There are some private route, without login user won't be able to access to those route
+- Search functionality is available for the home page with specific tag
+- User can also login by using google .
+- Additionally I have used react helmet, aos animation, react hook form and others react library for better user experience
+
+
+# Website Preview
+## On Light Mode
+![screencapture-connectopia-9e807-web-app-2023-11-30-18_09_33](https://github.com/AsibHasanRiyad/car-doctor-client/assets/137589900/8d877792-e810-415c-855e-8d9f0d037ab6)
+
+
