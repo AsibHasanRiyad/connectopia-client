@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import Button from "../../../components/Shared/Button";
+import { Helmet } from "react-helmet-async";
 
 const Announcement = () => {
   const { register, handleSubmit } = useForm();
@@ -24,6 +25,9 @@ const Announcement = () => {
   };
   return (
     <div>
+       <Helmet>
+        <title>Announcement</title>
+      </Helmet>
       <h1 className=" text-4xl text-green-500 text-center my-16 font-bold">
         Make an Announcement
       </h1>

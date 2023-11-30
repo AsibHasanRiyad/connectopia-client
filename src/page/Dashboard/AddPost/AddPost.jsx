@@ -13,6 +13,7 @@ import Loader from "../../../components/Loader";
 import { Link } from "react-router-dom";
 import Button from "../../../components/Shared/Button";
 import useStatus from "../../../hooks/useStatus";
+import { Helmet } from "react-helmet-async";
 
 const AddPost = () => {
   const { user, loading } = useAuth();
@@ -116,15 +117,16 @@ const AddPost = () => {
           </div>
         ) : (
           <div className=" bg-transparent">
+            <Helmet>
+              <title>Add Post</title>
+            </Helmet>
             <h2 className="text-lg font-semibold text-gray-100 capitalize dark:text-white">
               Create Post
             </h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
-                  <label className="text-gray-100  ">
-                    Author Image
-                  </label>
+                  <label className="text-gray-100  ">Author Image</label>
                   <input
                     defaultValue={user?.photoURL}
                     type="text"
@@ -133,9 +135,7 @@ const AddPost = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-100  ">
-                    Author Name
-                  </label>
+                  <label className="text-gray-100  ">Author Name</label>
                   <input
                     defaultValue={user?.displayName}
                     type="text"
@@ -144,9 +144,7 @@ const AddPost = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-100  ">
-                    Author Email
-                  </label>
+                  <label className="text-gray-100  ">Author Email</label>
                   <input
                     type="email"
                     defaultValue={user?.email}
@@ -155,9 +153,7 @@ const AddPost = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-100  ">
-                    Up Vote
-                  </label>
+                  <label className="text-gray-100  ">Up Vote</label>
                   <input
                     type="number"
                     {...register("upVote", { required: true })}
@@ -167,9 +163,7 @@ const AddPost = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-100  ">
-                    Down Vote
-                  </label>
+                  <label className="text-gray-100  ">Down Vote</label>
                   <input
                     type="number"
                     {...register("downVote", { required: true })}
@@ -178,9 +172,7 @@ const AddPost = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-gray-100   ">
-                    Select Tag
-                  </label>
+                  <label className="text-gray-100   ">Select Tag</label>
                   <Select
                     className=" mt-2 "
                     onChange={handelChange}
@@ -191,9 +183,7 @@ const AddPost = () => {
               </div>
               <div>
                 <div className=" my-4">
-                  <label className="text-gray-100  ">
-                    Post Title
-                  </label>
+                  <label className="text-gray-100  ">Post Title</label>
                   <input
                     type="text"
                     {...register("postTitle", { required: true })}
@@ -202,9 +192,7 @@ const AddPost = () => {
                 </div>
 
                 <div>
-                  <label className="text-gray-100  ">
-                    Post Description
-                  </label>
+                  <label className="text-gray-100  ">Post Description</label>
                   <textarea
                     type="text"
                     {...register("postDescription", { required: true })}

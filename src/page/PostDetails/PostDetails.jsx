@@ -9,6 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import CommentsOnPost from "../../components/Comments/CommentsOnPost";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const PostDetails = () => {
   // const data = useLoaderData();
@@ -108,6 +109,9 @@ const PostDetails = () => {
   };
   return (
     <div className=" w-full py-6 bg-transparent  rounded-lg shadow-sm   ">
+      <Helmet>
+        <title>Post Details</title>
+      </Helmet>
       <div className="flex items-center">
         <img
           className="hidden object-cover w-10 h-10 mr-4 rounded-full sm:block"

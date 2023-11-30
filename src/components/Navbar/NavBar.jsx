@@ -118,7 +118,7 @@ const NavBar = () => {
       className={
         navBar
           ? "bg-[#1a365d] z-10 w-full sticky top-0 transform"
-          : "bg-[#132c50] w-full sticky top-0 transition duration-500"
+          : "bg-[#132c50] z-10 w-full sticky top-0 transition duration-500"
       }
     >
       <Container>
@@ -174,7 +174,7 @@ const NavBar = () => {
               </Link>
             </div>
             {user ? (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end z-20">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img

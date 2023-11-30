@@ -1,4 +1,4 @@
-
+import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import UserTable from "./UserTable";
 // import useUser from "../../../hooks/useUser";
@@ -7,12 +7,10 @@ import { useEffect, useState } from "react";
 const ManageUser = () => {
   // const [users , refetch] = useUser()
   // console.log(users);
-  const [users, setUsers] = useState([])
-  const [totalUser, setTotalUser] = useState(0)
+  const [users, setUsers] = useState([]);
+  const [totalUser, setTotalUser] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const axiosSecure = useAxiosSecure()
- 
-
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     fetch("https://connectopia-server.vercel.app/usersCount")
@@ -22,7 +20,6 @@ const ManageUser = () => {
         setTotalUser(data.count);
       });
   }, []);
-
 
   const userPerPage = 10;
   const numberOfPage = Math.ceil(totalUser / userPerPage);
@@ -45,6 +42,9 @@ const ManageUser = () => {
   console.log(users);
   return (
     <div>
+       <Helmet>
+        <title>Manage Users</title>
+      </Helmet>
       <div className="overflow-x-auto max-w-sm md:max-w-xl lg:max-w-full">
         <table className="table">
           <thead>
@@ -58,7 +58,10 @@ const ManageUser = () => {
           </thead>
           <tbody className=" text-gray-100">
             {users?.map((user) => (
-              <UserTable key={user._id} user={user}></UserTable>
+              <UserTable
+                key={user._id}
+                user={user}
+              ></UserTable>
             ))}
           </tbody>
         </table>

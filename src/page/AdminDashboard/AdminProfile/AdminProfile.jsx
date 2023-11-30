@@ -6,6 +6,7 @@ import { PieChart, Pie, Cell, Legend } from "recharts";
 import AddTags from "./AddTags";
 import Tags from "../../../components/Tags/Tags";
 import { IoMail } from "react-icons/io5";
+import { Helmet } from "react-helmet-async";
 
 const AdminProfile = () => {
   const [postCount, setPostCount] = useState("");
@@ -66,7 +67,9 @@ const AdminProfile = () => {
 
   return (
     <div>
-
+       <Helmet>
+        <title>Admin Profile</title>
+      </Helmet>
       <div className=" flex flex-col lg:flex-row  justify-center item-center gap-0 lg:gap-32  ">
         <div className="avatar flex justify-center items-center mt-24 mb-16">
           <div className=" w-40 md:w-48 absolute rounded-full ">

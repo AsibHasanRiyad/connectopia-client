@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import CommentsTable from "./CommentsTable";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -24,6 +25,9 @@ const Comments = () => {
 
     return (
         <div>
+           <Helmet>
+        <title>Comments</title>
+      </Helmet>
              <h1 className=" text-center text-gray-100 text-5xl font-bold py-6">Comments</h1>
              <div className="overflow-x-auto">
         <table className="table">

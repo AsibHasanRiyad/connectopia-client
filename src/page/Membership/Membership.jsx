@@ -4,6 +4,7 @@ import PaymentForm from "./PaymentForm";
 import useStatus from "../../hooks/useStatus";
 import { Link } from "react-router-dom";
 import Button from "../../components/Shared/Button";
+import { Helmet } from "react-helmet-async";
 
 //TODO: add valid publishable key
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
@@ -13,6 +14,9 @@ const Membership = () => {
   // console.log(status);
   return (
     <div>
+      <Helmet>
+        <title>Membership</title>
+      </Helmet>
       {status === "Gold" ? (
         <div>
           <div className="container px-6 py-16 mx-auto">

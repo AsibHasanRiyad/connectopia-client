@@ -15,7 +15,7 @@ const Banner = () => {
     getSearchValue(lowercase);
   };
   return (
-    <div className="container py-8 md:py-16 mx-auto">
+    <div className="container py-8 md:py-16 mx-auto z-10">
       <div className="items-center lg:flex">
         <div
         data-aos="zoom-in-left"

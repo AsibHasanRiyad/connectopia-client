@@ -3,6 +3,7 @@ import { IoMail } from "react-icons/io5";
 import usePost from "../../hooks/usePost";
 import MyPos from "./MyPos";
 import useStatus from "../../hooks/useStatus";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
   const { user } = useAuth();
@@ -13,6 +14,9 @@ const MyProfile = () => {
   const [status] = useStatus();
   return (
     <div className="w-full  text-white overflow-hidden    ">
+      <Helmet>
+        <title>My Profile</title>
+      </Helmet>
       <div className=" flex items-center justify-center mt-5 lg:mt-10 mb-10 lg:mb-20">
         <div className=" flex flex-col lg:flex-row  justify-between item-center gap-0 lg:gap-20">
           <div className="avatar flex justify-center items-center mt-24 mb-16">

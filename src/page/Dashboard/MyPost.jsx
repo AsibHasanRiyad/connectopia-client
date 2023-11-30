@@ -5,6 +5,7 @@ import MyPostTable from "./MyPostTable";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const MyPost = () => {
   const { user } = useAuth();
@@ -45,6 +46,9 @@ const MyPost = () => {
 
   return (
     <div className=" col-span-4 order-2 md:order-1">
+       <Helmet>
+        <title>My Post</title>
+      </Helmet>
       <h1 className=" text-6xl text-gray-100 font-semibold my-6"> My Post </h1>
       <div className="overflow-x-auto max-w-sm md:max-w-xl lg:max-w-full">
         <table className="table text-gray-100">
