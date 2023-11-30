@@ -11,7 +11,6 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Membership = () => {
   const [status] = useStatus();
   console.log(status);
-
   return (
     <div>
       {status === "Gold" ? (

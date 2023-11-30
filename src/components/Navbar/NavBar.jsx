@@ -22,17 +22,55 @@ const NavBar = () => {
 
   const navItems = (
     <>
+
+    {
+      isAdmin ? 
+      <>
       <li className=" transform hover:scale-125 transition duration-500 ease-out">
-        <NavLink
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
-          }
-          to={"/"}
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="transform hover:scale-125 transition duration-500 ease-out">
+      <NavLink
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
+        }
+        to={"/"}
+      >
+        Home
+      </NavLink>
+    </li> 
+      <li className=" transform hover:scale-125 transition duration-500 ease-out">
+      <NavLink
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
+        }
+        to={"/dashboard/manageUser"}
+      >
+        Manage User
+      </NavLink>
+    </li> 
+      <li className=" transform hover:scale-125 transition duration-500 ease-out">
+      <NavLink
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
+        }
+        to={"/dashboard/announcement"}
+      >
+        Make Announcement
+      </NavLink>
+    </li> 
+      
+       </>
+      :
+    <>
+    <li className=" transform hover:scale-125 transition duration-500 ease-out">
+    <NavLink
+      className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
+      }
+      to={"/"}
+    >
+      Home
+    </NavLink>
+  </li>
+        <li className="transform hover:scale-125 transition duration-500 ease-out">
         <NavLink
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? " bg-green-500 text-gray-100 italic px-2 py-1 rounded" : ""
@@ -42,6 +80,8 @@ const NavBar = () => {
           Membership
         </NavLink>
       </li>
+      </>
+    }
     </>
   );
   return (

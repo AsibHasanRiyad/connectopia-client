@@ -33,7 +33,7 @@ const CommentsTable = ({ com }) => {
                     document.getElementById("my_modal_1").showModal()
                   }
                 >
-                  See More.....
+                  <span className=" text-green-500">See More.....</span>
                 </button>
                 <dialog id="my_modal_1" className="modal">
                   <div className="modal-box">
