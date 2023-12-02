@@ -28,7 +28,6 @@ https://connectopia-9e807.web.app/
 
 
 # Website Preview
-## On Light Mode
 ![screencapture-connectopia-9e807-web-app-2023-11-30-18_09_33](https://github.com/AsibHasanRiyad/car-doctor-client/assets/137589900/8d877792-e810-415c-855e-8d9f0d037ab6)
 
 
