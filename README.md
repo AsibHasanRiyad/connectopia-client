@@ -24,7 +24,7 @@ https://connectopia-9e807.web.app/
 
 **Enhanced User Experience:** Leveraging various React libraries and frameworks, such as,Tailwind CSS,Daisy UI, React Helmet for efficient meta tag management, AOS animations for engaging visual elements, React Hook Form for streamlined form handling, and React Awesome Button for enhanced button components, contributes to an overall enhanced and user-friendly interface.
 # Used Technology
-Frontend: React.js
+**Frontend:** React.js
 Backend: Node.js, Express.js
 Database: Mongoose
 User Authentication: Firebase Authentication
