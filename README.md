@@ -28,10 +28,10 @@ https://connectopia-9e807.web.app/
 
 **Backend:** Node.js, Express.js
 **Database:** Mongoose
-User Authentication: Firebase Authentication
-Deployment: Firebase Hosting
-Version Control: Git, GitHub
-Others: Tailwind CSS, AOS Animation, React-Hook Form, React Helmet
+- User Authentication: Firebase Authentication
+- Deployment: Firebase Hosting
+- Version Control: Git, GitHub
+- Others: Tailwind CSS, AOS Animation, React-Hook Form, React Helmet
 
 
 
