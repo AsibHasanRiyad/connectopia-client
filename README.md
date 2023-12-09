@@ -9,10 +9,10 @@
 
 https://connectopia-9e807.web.app/
 
+# Description
+**Connectopia Online Forum:** Connectopia is an online forum that facilitates seamless communication through distinct user and admin roles. Users can post, comment, react to posts, and access a personalized dashboard showcasing their profile and activities. Admins, in addition to these functions, have the authority to make announcements, view site statistics, and manage user roles effectively.
 
 # Features
-
-**Connectopia Online Forum:** Connectopia is an online forum that facilitates seamless communication through distinct user and admin roles. Users can post, comment, react to posts, and access a personalized dashboard showcasing their profile and activities. Admins, in addition to these functions, have the authority to make announcements, view site statistics, and manage user roles effectively.
 
 **Role-based Functionalities** The project includes user login and logout features with distinct roles for Admins and regular users. Admins have exclusive access to specific features tailored to their role.
 
@@ -26,8 +26,8 @@ https://connectopia-9e807.web.app/
 # Used Technology
 **Frontend:** React.js
 
-Backend: Node.js, Express.js
-Database: Mongoose
+**Backend:** Node.js, Express.js
+**Database:** Mongoose
 User Authentication: Firebase Authentication
 Deployment: Firebase Hosting
 Version Control: Git, GitHub
