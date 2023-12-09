@@ -23,8 +23,15 @@ https://connectopia-9e807.web.app/
 **Google Login Integration:** The platform seamlessly integrates Google login functionality, providing users with an alternative and convenient authentication method.
 
 **Enhanced User Experience:** Leveraging various React libraries and frameworks, such as,Tailwind CSS,Daisy UI, React Helmet for efficient meta tag management, AOS animations for engaging visual elements, React Hook Form for streamlined form handling, and React Awesome Button for enhanced button components, contributes to an overall enhanced and user-friendly interface.
+# Used Technology
+Frontend: React.js
+Backend: Node.js, Express.js
+Database: Mongoose
+User Authentication: Firebase Authentication
+Deployment: Firebase Hosting
+Version Control: Git, GitHub
+Others: Tailwind CSS, AOS Animation, React-Hook Form, React Helmet
 
-**Backend with Mongoose:** Connectopia utilizes Mongoose for its backend, facilitating seamless communication between the frontend and the database.
 
 
 # Website Preview
