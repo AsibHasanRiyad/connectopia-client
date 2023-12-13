@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
-import Container from "../components/Container";
+// import Container from "../components/Container";
 import Loader from "../components/Loader";
 import useAuth from "../hooks/useAuth";
 import Aos from "aos";
@@ -25,11 +25,11 @@ const MainLayout = () => {
         data-aos-duration="1000"
       >
         <NavBar></NavBar>
-        <Container>
+        {/* <Container> */}
          <div className=" min-h-screen">
          <Outlet></Outlet>
          </div>
-        </Container>
+        {/* </Container> */}
         <Footer></Footer>
       </div>
     );
