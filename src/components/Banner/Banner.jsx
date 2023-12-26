@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Button from "../Shared/Button";
 import { SearchContext } from "../../provider/searchProvider";
 import { Link } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 
 const Banner = () => {
   const { getSearchValue } = useContext(SearchContext);
@@ -18,15 +19,24 @@ const Banner = () => {
     <div className="container py-8 md:py-16 mx-auto z-10">
       <div className="items-center lg:flex">
         <div
-        data-aos="zoom-in-left"
-        data-aos-offset="100"
-        data-aos-easing="ease-in-sine"
-        data-aos-duration="1000"
-        className="w-full lg:w-1/2">
+          data-aos="zoom-in-left"
+          data-aos-offset="100"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="1000"
+          className="w-full lg:w-1/2"
+        >
           <div className="lg:max-w-lg">
             <h1 className=" text-3xl md:text-4xl font-semibold text-gray-100 dark:text-white lg:text-5xl">
-              Best place to express <br /> your{" "}
-              <span className="text-green-500 ">opinion</span>
+              Best place to express <br />{" "}
+            </h1>
+            <h1 className="text-green-500 mt-2 text-3xl md:text-4xl font-semibold  lg:text-5xl ">
+              <Typewriter
+                options={{
+                  strings: ["Opinion", "Thoughts", "Ideas"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </h1>
 
             <p className="my-4 text-gray-50    text-base md:text-xl text-justify">
@@ -49,7 +59,7 @@ const Banner = () => {
             data-aos-easing="ease-in-sine"
             data-aos-duration="1000"
             className="w-3/4 h-full lg:max-w-3xl"
-            src='https://i.ibb.co/bvB2LyH/Pngtree-people-characters-work-near-a-7516385-1.png'
+            src="https://i.ibb.co/bvB2LyH/Pngtree-people-characters-work-near-a-7516385-1.png"
             alt="Catalogue-pana.svg"
           />
         </div>

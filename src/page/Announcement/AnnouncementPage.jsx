@@ -31,7 +31,7 @@ const AnnouncementPage = () => {
     );
   }
   return (
-    <div className=" col-span-2 my-6">
+    <div className=" col-span-2 mx-8 my-8 md:mx-16 lg:mx-20 lg:my-16 ">
       <div className=" space-y-5">
         {announcement?.map((announcement) => (
           <Announcements
