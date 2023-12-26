@@ -18,12 +18,14 @@ import AdminRoutes from "./AdminRoutes";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 import Comments from "../components/Comments/Comments";
+import AboutUs from "../page/AboutUs/AboutUs";
+import Contact from "../page/Contact/Contact";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -31,21 +33,47 @@ const router = createBrowserRouter([
       },
       {
         path: "/post/:id",
-        element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <PostDetails></PostDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://connectopia-server.vercel.app/post/${params.id}`),
       },
       {
         path: "/announcement",
-        element: <PrivateRoute><AnnouncementPage></AnnouncementPage>  </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AnnouncementPage></AnnouncementPage>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/aboutUS",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/membership",
-        element:<PrivateRoute> <Membership></Membership>  </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Membership></Membership>{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/comments/:id",
-        element:<PrivateRoute> <Comments></Comments>  </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Comments></Comments>{" "}
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -60,8 +88,13 @@ const router = createBrowserRouter([
   // dashboard
   {
     path: "dashboard",
-    element:<PrivateRoute>  <DashboardLayout></DashboardLayout> </PrivateRoute>,
-    errorElement:<ErrorPage></ErrorPage>,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <DashboardLayout></DashboardLayout>{" "}
+      </PrivateRoute>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       // normal user route
       {
