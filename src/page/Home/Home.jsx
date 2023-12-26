@@ -5,9 +5,9 @@ import Tags from "../../components/Tags/Tags";
 import useAnnouncement from "../../hooks/useAnnouncement";
 import SearchProvider from "../../provider/searchProvider";
 // import useAuth from "../../hooks/useAuth";
-import AnnouncementPage from "../Announcement/AnnouncementPage";
 import { ParallaxBanner } from "react-scroll-parallax";
 import Container from "../../components/Container";
+import HomeAnnouncement from "../Announcement/HomeAnnouncement";
 
 const Home = () => {
   const [announcement] = useAnnouncement();
@@ -31,12 +31,13 @@ const Home = () => {
               speed: -30,
               children: (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <h1 
-                   data-aos="fade-down"
-                   data-aos-offset="100"
-                   data-aos-easing="ease-in-sine"
-                   data-aos-duration="1000"
-                  className=" text-4xl md:text-6xl lg:text-8xl text-[#E57E77] text-center mb-56 font-thin">
+                  <h1
+                    data-aos="fade-down"
+                    data-aos-offset="100"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="1000"
+                    className=" text-4xl md:text-6xl lg:text-8xl text-[#E57E77] text-center mb-56 font-thin"
+                  >
                     Drive into the world of communication
                   </h1>
                 </div>
@@ -61,7 +62,7 @@ const Home = () => {
                   <h1 className=" text-4xl text-green-500 font-semibold mt-10 mb-5">
                     Announcements:
                   </h1>
-                  <AnnouncementPage></AnnouncementPage>
+                  <HomeAnnouncement></HomeAnnouncement>
                 </div>
               ) : (
                 <div>
