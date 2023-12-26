@@ -58,7 +58,7 @@ const Home = () => {
               <Tags></Tags>
               {announcement?.length > 0 ? (
                 <div>
-                  <h1 className=" text-4xl text-green-500 font-semibold my-6">
+                  <h1 className=" text-4xl text-green-500 font-semibold mt-10 mb-5">
                     Announcements:
                   </h1>
                   <AnnouncementPage></AnnouncementPage>

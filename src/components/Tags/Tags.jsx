@@ -41,10 +41,10 @@ if (loading) {
     // data-aos-easing="ease-in-sine"
     // data-aos-duration="1000"
     className=" col-span-2  bg-[#132c50] rounded-md">
-      <h1 className=" text-xl md:text-2xl lg:text-4xl text-green-500 font-semibold">
+      <h1 className=" text-xl md:text-2xl lg:text-4xl text-green-500 font-semibold mb-6">
       Optimize searches by tags:
       </h1>
-      <div className=" border border-green-500 rounded-md  p-6 shadow-md shadow-green-900 flex flex-wrap gap-4 mt-4 ">
+      <div className=" border border-slate-600 rounded-md  p-6 shadow-xl flex flex-wrap gap-4 mt-4 ">
         {tags.map((tag) => (
           <p className=" text-gray-200" key={tag._id}>#{tag.value}</p>
         ))}
