@@ -8,6 +8,7 @@ import SearchProvider from "../../provider/searchProvider";
 import { ParallaxBanner } from "react-scroll-parallax";
 import Container from "../../components/Container";
 import HomeAnnouncement from "../Announcement/HomeAnnouncement";
+import Stats from "../../components/Stats/Stats";
 
 const Home = () => {
   const [announcement] = useAnnouncement();
@@ -91,6 +92,15 @@ const Home = () => {
                 </div>
               )}
             </div>
+          </div>
+          <div
+           data-aos="fade-up"
+           data-aos-offset="100"
+           data-aos-easing="ease-in-sine"
+           data-aos-duration="1000"
+          className=" py-6">
+            <h1 className=" text-green-500 text-5xl text-center font-bold mb-5">Site Stats</h1>
+            <Stats />
           </div>
         </Container>
       </div>
